@@ -32,12 +32,12 @@ export default {
 
 <style lang="postcss" scoped>
 .player-progress-bar__container {
-  @apply absolute -top-2;
-  @apply h-3 w-screen;
+  @apply absolute -top-3;
+  @apply h-6 w-screen;
 }
 
 .player-progress-bar__body {
-  @apply absolute bottom-1;
+  @apply absolute bottom-3;
   height: 3px;
   @apply w-screen;
   @apply bg-brand-700;
