@@ -1,6 +1,7 @@
 <template>
   <div class="player__container">
-    <div class="player__progress_bar" />
+    <!-- <div class="player__progress_bar" /> -->
+    <ui-player-progress-bar />
     <div class="player__body">
       <div class="player__body__left">
         <img height="80px" width="80px" src="/images/covers/ram.jpg" alt="" />
@@ -69,27 +70,14 @@ export default {
 <style lang="postcss" scoped>
 .player__container {
   @apply fixed bottom-0;
-  height: 83px;
-  max-height: 83px;
+  height: 80px;
+  max-height: 80px;
   @apply w-full;
   @apply bg-brand-900;
 }
 
 h5 {
   @apply text-2xs;
-}
-
-.player__progress_bar {
-  @apply relative;
-  height: 3px;
-  @apply bg-brand-700;
-}
-.player__progress_bar::after {
-  content: '';
-  @apply absolute top-0 left-0;
-  height: 3px;
-  @apply w-2/5;
-  @apply bg-brand-accent rounded-tr-sm rounded-br-none;
 }
 
 .player__body {
