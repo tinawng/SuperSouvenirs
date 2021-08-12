@@ -6,14 +6,20 @@
 
 <script>
 export default {
+  props: ['value'],
   data: () => ({
     seeking_position: 0,
   }),
   computed: {
     css_vars: function () {
-      var css_vars = `--seeking-position: ${this.seeking_position * 100}%`;
+      var css_vars = `--seeking-position: ${this.seeking_position * 100}%;`;
+      css_vars += `--current-position: ${this.value * 100}%;`;
       return css_vars;
     },
+  },
+   watch: {
+    // current_time: function (value) {
+    // },
   },
 
   methods: {
@@ -22,6 +28,7 @@ export default {
     },
     seek(event) {
       console.log(event);
+      this.$audio.seek();
       // var seeked_ratio = event.offsetX / event.target.clientWidth;
       // var seeked_time = this.player.duration * seeked_ratio;
       // this.$audio.seek(seeked_time);
@@ -54,7 +61,8 @@ export default {
   content: "";
   @apply absolute top-0 left-0;
   height: 3px;
-  @apply w-2/5;
+  width: var(--current-position);
+  /* @apply w-2/5; */
   @apply bg-brand-accent rounded-tr-sm rounded-br-none;
 
   transition-property: height, border-radius;

@@ -1,25 +1,36 @@
 <template>
   <div class="player__container">
-    <!-- <div class="player__progress_bar" /> -->
-    <ui-player-progress-bar />
+    <audio ref="audio" crossOrigin="anonymous" src="https://tanabata.tina.cafe/supersouvenirs/stream/50"/>
+    <ui-player-progress-bar :value="audio_player.current_time / 30" />
+
     <div class="player__body">
       <div class="player__body__left">
         <img height="80px" width="80px" src="/images/covers/ram.jpg" alt="" />
-        <div class="mt-1 mx-7 flex flex-col justify-center">
+        <div class="mx-7 flex flex-col justify-center">
           <ui-utils-button icon="plus" small />
           <ui-utils-button class="mt-2" icon="more" small />
         </div>
-        <div class="mt-0.5 flex flex-col justify-center">
+        <div class="flex flex-col justify-center">
           <h5>Daft Punk</h5>
           <h3 class="text-sm leading-relaxed opacity-90">Contact</h3>
           <h5>Random Access Memories · 2013</h5>
         </div>
       </div>
+
       <div class="player__body__center">
         <ui-utils-button icon="previous" :outlined="false" :icon_size="48" :icon_stroke="2" />
-        <ui-utils-button class="mx-3" icon="pause" :icon_size="48" round thick_outline :icon_stroke="2" />
+        <ui-utils-button
+          class="mx-3"
+          :icon="audio_player.is_playing ? 'pause' : 'play'"
+          :icon_size="48"
+          round
+          thick_outline
+          :icon_stroke="2"
+          :callback="() => {if ($audio.audio_player) {$audio.playPause(); audio_player = $audio.audio_player}}"
+        />
         <ui-utils-button icon="next" :outlined="false" :icon_size="48" :icon_stroke="2" />
       </div>
+
       <div class="player__body__right">
         <div class="player__body__right__timer">
           <h5 class="tracking-tighter">3:53 / 4:04</h5>
@@ -63,7 +74,11 @@
 
 <script>
 export default {
-  data: () => ({ shuffle: false, repeat: false }),
+  data: () => ({ audio_player: {}, shuffle: false, repeat: false }),
+
+  mounted() {
+    this.$audio.initialize(this.$refs.audio);
+  },
 };
 </script>
 
