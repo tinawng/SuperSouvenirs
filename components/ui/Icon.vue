@@ -9,56 +9,27 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <g v-if="!variant || variant == 'play'">
-      <polygon points="7 3 21 12 7 21 7 3"></polygon>
+    <g v-if="!variant || variant == 'icon'">
+      <path
+        fill="currentColor"
+        stroke="transparent"
+        d="M16,9H19L14,16M10,9H14L12,17M5,9H8L10,16M15,4H17L19,7H16M11,4H13L14,7H10M7,4H9L8,7H5M6,2L2,8L12,22L22,8L18,2H6Z"
+      />
     </g>
-    <g v-else-if="variant == 'plus'">
-      <line x1="12" y1="5" x2="12" y2="19"></line>
-      <line x1="5" y1="12" x2="19" y2="12"></line>
-    </g>
-    <g v-else-if="variant == 'more'">
-      <circle cx="12" cy="12" r="1"></circle>
-      <circle cx="19" cy="12" r="1"></circle>
-      <circle cx="5" cy="12" r="1"></circle>
-    </g>
-    <g v-else-if="variant == 'previous'">
-      <line x1="19" y1="20" x2="9" y2="12"></line>
-      <line x1="9" y1="12" x2="19" y2="4"></line>
-      <line x1="5" y1="19" x2="5" y2="5"></line>
+    <g v-else-if="!variant || variant == 'play'">
+      <polygon fill="currentColor" points="7 3 21 12 7 21 7 3"></polygon>
     </g>
     <g v-else-if="variant == 'next'">
-      <line x1="5" y1="4" x2="15" y2="12"></line>
-      <line x1="15" y1="12" x2="5" y2="20"></line>
-      <line x1="19" y1="5" x2="19" y2="19"></line>
+      <polyline points="9 18 15 12 9 6"></polyline>
     </g>
-    <g v-else-if="variant == 'pause'">
-      <line x1="7" y1="4" x2="7" y2="20"></line>
-      <line x1="17" y1="4" x2="17" y2="20"></line>
+    <g v-else-if="variant == 'previous'">
+      <polyline points="15 18 9 12 15 6" />
     </g>
-    <g v-else-if="variant == 'shuffle'">
-      <polyline points="16 3 21 3 21 8"></polyline>
-      <line x1="4" y1="20" x2="21" y2="3"></line>
-      <polyline points="21 16 21 21 16 21"></polyline>
-      <line x1="15" y1="15" x2="21" y2="21"></line>
-      <line x1="4" y1="4" x2="9" y2="9"></line>
+    <g v-else-if="variant == 'up'">
+      <polyline points="18 15 12 9 6 15"></polyline>
     </g>
-    <g v-else-if="variant == 'repeat'">
-      <polyline points="17 1 21 5 17 9"></polyline>
-      <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
-      <polyline points="7 23 3 19 7 15"></polyline>
-      <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
-    </g>
-    <g v-else-if="variant == 'list'">
-      <line x1="8" y1="6" x2="21" y2="6"></line>
-      <line x1="8" y1="12" x2="21" y2="12"></line>
-      <line x1="8" y1="18" x2="21" y2="18"></line>
-      <line x1="3" y1="6" x2="3.01" y2="6"></line>
-      <line x1="3" y1="12" x2="3.01" y2="12"></line>
-      <line x1="3" y1="18" x2="3.01" y2="18"></line>
-    </g>
-    <g v-else-if="variant == 'volume'">
-      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-      <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+    <g v-else-if="variant == 'down'">
+      <polyline points="6 9 12 15 18 9"></polyline>
     </g>
     <g v-else-if="variant == 'dot'">
       <circle cx="12" cy="12" r="2" fill="currentColor"></circle>

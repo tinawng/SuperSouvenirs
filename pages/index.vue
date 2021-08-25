@@ -1,111 +1,124 @@
 <template>
-  <div class="page__container">
-    <div class="page__hero">
-      <div class="page__hero_background"></div>
-      <h2>featured</h2>
-      <h1>The Beatles</h1>
-      <span class="-mt-2 ml-3 text-lg text-brand-white text-opacity-80">are now on Super Souvenirs !</span>
-      <div class="mt-6 ml-1 flex">
-        <ui-utils-button icon="play" primary>play</ui-utils-button>
-        <ui-utils-button class="ml-1">follow</ui-utils-button>
+  <div class="page__container" :style="css_vars">
+    <div class="max-w-sm w-full justify-self-end">
+      <h3 class="px-1.5 text-right bg-brand-primary text-brand-secondary"><b>CURRENT FLOW</b></h3>
+      <div class="mt-4 px-2 flex justify-between items-center">
+        <h4>CHILL</h4>
+        <ui-selector />
+        <h4>FUNKY</h4>
+      </div>
+      <div class="mt-4 px-2 flex justify-between items-center">
+        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 bg-brand-primary text-brand-secondary">CITY POP</h4>
+        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 border border-brand-primary">SOUL</h4>
+        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 bg-brand-primary text-brand-secondary">JAZZ</h4>
+        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 border border-brand-primary">FUSION</h4>
       </div>
     </div>
-    <div class="page__content">
-      <div class="page__content__new">
-        <h2>new entries</h2>
-        <div class="mt-6 grid grid-cols-2 gap-8">
-          <div>
-            <ui-utils-album-cover shadow interactive />
-            <div class="flex justify-between">
-              <div class="mt-4 ml-4 flex flex-col">
-                <h3 class="mt-0.5 mb-1.5 leading-none">Random Access Memories</h3>
-                <h5>Daft Punk · 2013</h5>
-              </div>
-              <div class="mt-4 mr-1 flex flex-col">
-                <ui-utils-button icon="plus" small />
-                <ui-utils-button class="mt-1.5" icon="more" small />
-              </div>
-            </div>
-          </div>
-          <div>
-            <ui-utils-album-cover shadow interactive />
-            <div class="flex justify-between">
-              <div class="mt-4 ml-4 flex flex-col">
-                <h3 class="mt-0.5 mb-1.5 leading-none">R.A.M.</h3>
-                <h5>Daft Punk · 2013</h5>
-              </div>
-              <div class="mt-4 mr-1 flex flex-col">
-                <ui-utils-button icon="plus" small />
-                <ui-utils-button class="mt-1.5" icon="more" small />
-              </div>
-            </div>
-          </div>
-        </div>
+    <div class="relative justify-self-center">
+      <div class="cover__container">
+        <img class="h-full" src="/covers/cover7.jpg" alt="" />
+        <img class="cover_wear" src="/covers/wear.png" alt="" />
       </div>
-      <div class="page__content__chart">
-        <h2 class="mb-6">top charts</h2>
-        <div v-for="index in 6" :key="index" class="mt-2 flex items-center">
-          <ui-utils-album-cover class="w-1/4" />
-          <h5 class="mx-5">{{index}}</h5>
-          <div>
-            <h4>Contact</h4>
-            <h5>Daft Punk</h5>
-          </div>
-        </div>
+      <div class="ply">
+        <ui-progress-bar />
+        <ui-player class="mt-4" />
       </div>
-      <div class="page__content__spotlight">
-        <ui-utils-album-cover class="absolute -top-20 w-10/12" style="left: 8.5%; z-index: -2;" />
-        <ui-utils-album-cover class="absolute -top-10 w-11/12" style="left: 4.5%; z-index: -1;" />
-        <ui-utils-album-cover interactive />
+    </div>
+    <div class="flex flex-col justify-around h-full" @click="changeTitle">
+      <div></div>
+      
+      <div>
+        <div class="pb-1.5 overflow-hidden">
+          <transition name="slide-in" mode="out-in">
+            <h1 :key="artist">{{artist}}</h1>
+          </transition>
+        </div>
 
-        <div class="p-3 bg-brand-800">
-          <h2>recommended for you</h2>
-          <h3 class="mt-1">Spotlights</h3>
-          <h5>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</h5>
+        <div class="overflow-hidden">
+          <transition name="slide-in" mode="out-in">
+            <h2 :key="title">{{title}}</h2>
+          </transition>
         </div>
+      </div>
+
+      <div class="overflow-hidden">
+        <transition name="slide-in" mode="out-in">
+          <h4>1982 - LABEL ALFA - FLAC 16/44.1kHz</h4>
+        </transition>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data: () => ({
+    artist: "Casiopea",
+    title: "Asayake",
+
+    cover_wear_scale: 1,
+    cover_wear_angle: 0,
+  }),
+  computed: {
+    css_vars: function () {
+      let css_vars = "";
+
+      // Cover wear
+      css_vars += `--cover-wear-scale: ${this.cover_wear_scale};`;
+      css_vars += `--cover-wear-angle: ${this.cover_wear_angle}deg;`;
+
+      return css_vars;
+    },
+  },
+
+  created() {
+    this.cover_wear_scale = 1 + Math.random() / 3;
+    this.cover_wear_angle = Math.floor(Math.random() * 4) * 90;
+  },
+
+  methods: {
+    changeTitle() {
+      this.artist = this.artist == "Casiopea" ? "Ryo Fukui" : "Casiopea";
+      this.title = this.title == "Asayake" ? "I Want To Talk About You" : "Asayake";
+    },
+  },
+};
 </script>
 
-<style lang="postcss">
+<style lang="postcss" scoped>
 .page__container {
-  @apply w-full;
+  @apply grid grid-cols-3 items-center;
+  grid-template-rows: calc(100vh - 256px) 128px;
 }
-.page__hero {
-  @apply relative;
-  @apply h-1/2 w-full;
-  @apply py-6 px-10;
-  @apply flex flex-col justify-end;
-}
-.page__hero_background {
-  @apply absolute top-0 left-0;
-  z-index: -10;
-  height: 125%;
-  width: 100%;
 
-  background-image: url("/images/hero.jpg");
-  background-size: cover;
+.nav__container {
+  @apply h-60;
+  @apply my-auto pl-12;
+  @apply flex flex-col justify-evenly;
+  @apply uppercase;
 }
-.page__content {
-  @apply w-full;
-  @apply p-10;
-  @apply grid grid-cols-4 gap-8;
-  background: #1a1a1ae0;
-}
-.page__content__new {
-  @apply col-span-2;
-}
-.page__content__chart {
-}
-.page__content__spotlight {
+
+.cover__container {
   @apply relative;
-  height: fit-content;
-  @apply -mt-14;
-  box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2), 0 5px 8px 0 rgba(0, 0, 0, 0.5), 0 1px 14px 0 rgba(0, 0, 0, 0.12);
+  @apply h-96 w-96;
+  @apply overflow-hidden;
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.24),
+    0 6px 30px 5px rgba(0, 0, 0, 0.24);
+  /* box-shadow: 0 11px 15px -7px rgba(48, 48, 48, 0.6), 0 24px 38px 3px rgba(48, 48, 48, 0.36),
+    0 9px 46px 8px rgba(0, 0, 0, 0.12); */
+  /* box-shadow: 0 11px 10px -7px rgba(48, 48, 48, 0.6), 0 16px 38px 3px rgba(48, 48, 48, 0.36),
+    0 9px 30px 8px rgba(0, 0, 0, 0.12); */
+}
+.cover_wear {
+  @apply absolute top-0 left-0;
+  @apply h-full;
+  @apply opacity-90;
+  transform: rotate(var(--cover-wear-angle)) scaleX(var(--cover-wear-scale)) scaleY(var(--cover-wear-scale));
+}
+
+.ply {
+  @apply absolute;
+  top: calc(100% + 2.25rem);
+  @apply w-full;
 }
 </style>

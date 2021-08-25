@@ -1,8 +1,7 @@
 <template>
   <div class="layout__container">
-    <ui-navigation-drawer/>
+    <ui-nav />
     <Nuxt />
-    <ui-player/>
   </div>
 </template>
 
@@ -21,11 +20,12 @@ export default {
 
 <style lang="postcss">
 .layout__container {
-  @apply min-h-screen;
+  @apply min-h-screen max-h-screen;
   max-width: 100vw;
   @apply w-screen;
   min-width: 100vw;
 
-  @apply flex;
+  @apply bg-brand-secondary text-brand-primary;
+  
 }
 </style>

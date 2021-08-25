@@ -8,114 +8,61 @@ html {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 
-  font-family: "Gotham";
-  @apply bg-brand-900 text-brand-white;
-  @apply overflow-x-hidden;
+  font-family: "Microgramma";
 }
 
-::selection {
-  @apply bg-black text-brand-white;
+:focus-visible {
+  outline: transparent !important;
 }
-
+:focus {
+  outline: transparent !important;
+}
 ::-webkit-scrollbar {
   @apply w-0 h-0;
 }
+::selection {
+  @apply bg-brand-primary text-brand-secondary;
+}
 
 h1 {
-  @apply text-brand-white text-7xl font-bold tracking-tight;
+  @apply text-6xl font-extrabold;
 }
 h2 {
-  @apply text-brand-white text-opacity-40 text-2xs font-semibold uppercase;
+  @apply text-3xl;
+}
+h3 {
+  @apply text-base;
 }
 h4 {
-  @apply text-xs;
-}
-h5 {
-  @apply text-brand-white text-opacity-25 text-xs leading-tight;
+  @apply text-2xs tracking-widest;
 }
 
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 150ms;
+.slide-in-enter-active, .slide-in-leave-active {
+  transition: all .6s ease;
 }
-.fade-enter, .fade-leave-to {
-  opacity: 0;
+.slide-in-enter, .slide-in-leave-to {
+  @apply transform translate-y-16;
 }
+
 
 @font-face {
-  font-family: 'Din';
+  font-family: 'Microgramma';
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('../../static/fonts/ff-din/DIN.woff2') format('woff2');
+       url('../../static/fonts/microgramma/HelveticaNowDisplay-Regular.otf') format('woff2');
 }
 @font-face {
-  font-family: 'Din';
-  font-style: normal;
-  font-weight: 500;
-  src: local(''),
-       url('../../static/fonts/ff-din/DIN-Medium.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Din';
+  font-family: 'Microgramma';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('../../static/fonts/ff-din/DIN-Bold.woff2') format('woff2');
+       url('../../static/fonts/microgramma/HelveticaNowDisplay-ExtraBold.otf') format('woff2');
 }
 @font-face {
-  font-family: 'Din';
+  font-family: 'Microgramma';
   font-style: normal;
   font-weight: 800;
   src: local(''),
-       url('../../static/fonts/ff-din/DIN-Black.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 100;
-  src: local(''),
-       url('../../static/fonts/gotham/Gotham-Thin.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 200;
-  src: local(''),
-       url('../../static/fonts/gotham/Gotham-XLight.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 300;
-  src: local(''),
-       url('../../static/fonts/gotham/GothamLight.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 400;
-  src: local(''),
-       url('../../static/fonts/gotham/GothamBook.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 600;
-  src: local(''),
-       url('../../static/fonts/gotham/GothamMedium.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 700;
-  src: local(''),
-       url('../../static/fonts/gotham/GothamBold.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Gotham';
-  font-style: normal;
-  font-weight: 800;
-  src: local(''),
-       url('../../static/fonts/gotham/Gotham-Black.woff2') format('woff2');
+       url('../../static/fonts/microgramma/HelveticaNowDisplay-Black.otf') format('woff2');
 }
