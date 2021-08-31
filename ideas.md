@@ -33,10 +33,10 @@
 │   ├── artist_id: Array
 │   ├── title: String
 │   ├── cover: String
-│   ├── release_date: String
+│   ├── release_year: Number
 │   ├── label: String
 │   ├── genre: Array
-│   ├── mood: Array
+│   ├── mood: Number
 │   ├── track_list: Array
 │   └── track_note: Array
 ├── Playlist
@@ -45,13 +45,12 @@
 │   ├── creation_date: String
 │   ├── last_update_date: String
 │   ├── track_list: Array
-│   └── track_note: Array
+│   └── track_notes: Array
 └── Track
+    ├── title: String
     ├── artist_id: Array
     ├── album_id: Id
-    ├── title: Id
     ├── duration: Number
     ├── metadata: Object (only for flac, the first 42bits of the file (& more?))
-    ├── note: Number
     └── listening_count: Number (might use sperate Analitics/Statistics model ?)
 ```
