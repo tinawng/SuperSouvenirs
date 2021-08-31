@@ -1,20 +1,12 @@
 <template>
   <div class="layout__container">
-    <ui-nav />
+    <ui-side-player />
     <Nuxt />
   </div>
 </template>
 
 <script>
 export default {
-  mounted() {
-    if (window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true) {
-      window.resizeTo(1080, 780);
-      window.addEventListener("resize", () => {
-        window.resizeTo(width, height);
-      });
-    }
-  },
 };
 </script>
 
@@ -25,7 +17,7 @@ export default {
   @apply w-screen;
   min-width: 100vw;
 
+  @apply flex;
   @apply bg-brand-secondary text-brand-primary;
-  
 }
 </style>
