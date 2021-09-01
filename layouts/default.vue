@@ -1,13 +1,13 @@
 <template>
   <div class="layout__container">
-    <ui-side-player />
+    <!-- <ui-side-player /> -->
+    <ui-narrow-side-player />
     <Nuxt />
   </div>
 </template>
 
 <script>
-export default {
-};
+export default {};
 </script>
 
 <style lang="postcss">
@@ -18,6 +18,5 @@ export default {
   min-width: 100vw;
 
   @apply flex;
-  @apply bg-brand-secondary text-brand-primary;
 }
 </style>

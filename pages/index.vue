@@ -1,11 +1,19 @@
 <template>
   <div class="page__container">
-    <h1>Choose Your Mood</h1>
+    <h1 class="">Choose Your Mood</h1>
     <div class="vibe-card__container">
       <div class="vibe-card" style="background: linear-gradient(45deg, #fbca88, #ef69ad);">Chill Vibes</div>
-      <div class="vibe-card" style="background: linear-gradient(45deg,#F32F8E,#B236D0);">CityPop Vibes</div>
-      <div class="vibe-card" style="background: linear-gradient(45deg,#DA1FF2,#4C15D0)">Jazz Vibes</div>
+      <div class="vibe-card" style="background: linear-gradient(72deg,#F32F8E,#B236D0);">CityPop Vibes</div>
+      <div class="vibe-card" style="background: linear-gradient(23deg,#DA1FF2,#4C15D0)">Jazz Vibes</div>
+      <div class="vibe-card" style="background: linear-gradient(45deg,#476892,#59355D)">Soul Vibes</div>
+      <div class="vibe-card" style="background: linear-gradient(128deg,#C3A8EE,#F5C1EA)">Ghibli Vibes</div>
     </div>
+    <div class="mt-6 flex items-end">
+      <h1 class="mr-8 ">Recently Played</h1>
+      <h1 class="mr-8 small opacity-20">Playlist</h1>
+      <h1 class="mr-8 small opacity-20">Albums</h1>
+    </div>
+    <div class="grid grid-cols-3"></div>
   </div>
 </template>
 
@@ -15,15 +23,16 @@ export default {};
 
 <style lang="postcss" scoped>
 .page__container {
-  @apply p-12;
-  flex-grow: 2;
+  @apply py-12 px-16;
+  flex-grow: 1;
   @apply flex flex-col;
 }
 .page__container > * {
-  @apply mb-4;
+  @apply mb-8;
 }
 
 .vibe-card__container {
+  width: fit-content;
   @apply flex;
 }
 .vibe-card__container > * {

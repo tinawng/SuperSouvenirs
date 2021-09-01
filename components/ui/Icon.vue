@@ -21,6 +21,7 @@
     </g>
     <g v-else-if="variant == 'next'">
       <polyline points="9 18 15 12 9 6"></polyline>
+      <line x1="18" y1="6" x2="18" y2="18"></line>
     </g>
     <g v-else-if="variant == 'previous'">
       <polyline points="15 18 9 12 15 6" />
@@ -33,6 +34,11 @@
     </g>
     <g v-else-if="variant == 'dot'">
       <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
+    </g>
+    <g v-else-if="variant == 'more'">
+      <circle cx="12" cy="12" r="1"></circle>
+      <circle cx="19" cy="12" r="1"></circle>
+      <circle cx="5" cy="12" r="1"></circle>
     </g>
   </svg>
 </template>
