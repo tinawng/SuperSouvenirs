@@ -15,6 +15,7 @@ export default {};
 <style lang="postcss" scoped>
 .narrow-player__container {
   @apply relative;
+  min-width: 6rem;
   @apply w-24;
 
   box-shadow: 0 10px 14px -6px rgb(0 0 0 / 20%), 0 22px 35px 3px rgb(0 0 0 / 20%), 0 8px 32px 7px rgb(0 0 0 / 20%);

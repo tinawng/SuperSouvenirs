@@ -1,7 +1,7 @@
 <template>
   <div class="layout__container">
     <!-- <ui-side-player /> -->
-    <ui-narrow-side-player />
+    <ui-narrow-side-player class="portrait:hidden sticky top-0 left-0" />
     <Nuxt />
   </div>
 </template>
@@ -12,7 +12,8 @@ export default {};
 
 <style lang="postcss">
 .layout__container {
-  @apply min-h-screen max-h-screen;
+  @apply relative;
+  @apply min-h-screen;
   max-width: 100vw;
   @apply w-screen;
   min-width: 100vw;

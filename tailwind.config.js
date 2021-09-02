@@ -15,7 +15,13 @@ module.exports = {
       fontSize: {
         '2xs': '.60rem',
       },
-    }
+    },
+    screens: {
+      'portrait': {'raw': '(orientation: portrait)'},
+      // 'sm': '1024px',
+      'md': '1024px',
+      'lg': '1920px',
+    },
   },
   variants: {
   },
