@@ -1,11 +1,14 @@
 <template>
   <div class="side-player__container">
-    <div class="cover" />
     <div class="player-ui">
       <!-- <ui-player /> -->
-      <img class="rounded" src="/covers/cover6.jpg" alt="" />
+        <img class="cover" src="/covers/cover3.jpg" alt="" />
+      <div class="text-center">
+        <p class="text-sm md:text-xl lg:text-2xl"><b>祈り - Prayer = Sala</b></p>
+        <span class="text-xs md:text-base lg:text-lg opacity-70">Akira Ishikawa</span>
+      </div>
       <ui-progress-bar />
-      <div class="p-8 flex items-center text-brand-secondary">
+      <div class="p-8 flex items-center text-brand-primary">
         <ui-icon class="icon-sh" variant="more" :size="28" />
         <ui-icon class="mx-12 icon-sh" variant="play" :size="64" />
         <ui-icon class="icon-sh" variant="next" :size="32" />
@@ -23,22 +26,11 @@ export default {};
   @apply relative;
   @apply max-h-screen w-1/2;
   min-width: 25vw;
-  @apply shadow-lg;
-
-
-  background-image: url("/covers/cover6.jpg");
-  background-size: 300%;
-  background-position: top center;
+  @apply bg-brand-secondary border-r-2;
 }
 .cover {
-  @apply absolute top-0;
-  @apply h-full w-full;
-  background-color: rgba(0, 0, 0, 0.12);
-  backdrop-filter: saturate(120%) brightness(80%) blur(20px);
-  box-shadow: 0 10px 14px -6px rgb(0 0 0 / 20%), 0 22px 35px 3px rgb(0 0 0 / 20%), 0 8px 32px 7px rgb(0 0 0 / 20%);
-}
-.icon-sh {
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.6)) drop-shadow(0 4px 6px rgba(0, 0, 0, 0.45));
+  @apply rounded;
+  box-shadow: -16px 16px 32px #9d9d9e, 16px -16px 32px #ffffff;
 }
 .player-ui {
   @apply absolute top-0 z-20;

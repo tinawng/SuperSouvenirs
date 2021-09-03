@@ -1,7 +1,7 @@
 <template>
   <div class="layout__container">
-    <!-- <ui-side-player /> -->
-    <ui-narrow-side-player class="portrait:hidden sticky top-0 left-0" />
+    <ui-side-player-white />
+    <!-- <ui-narrow-side-player class="portrait:hidden sticky top-0 left-0" /> -->
     <Nuxt />
   </div>
 </template>

@@ -14,12 +14,12 @@ module.exports = {
       },
       fontSize: {
         '2xs': '.60rem',
-      },
+      }
     },
     screens: {
-      'portrait': {'raw': '(orientation: portrait)'},
+      'portrait': { 'raw': '(orientation: portrait)' },
       // 'sm': '1024px',
-      'md': '1024px',
+      'md': '1081px',
       'lg': '1920px',
     },
   },
