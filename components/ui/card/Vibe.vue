@@ -4,7 +4,7 @@
 
     <div class="mr-1 mb-0.5">
       <transition name="slide-in" mode="out-in">
-        <ui-icon v-if="hover" class="p-1.5 border-2 rounded-full" variant="play" :size="36" />
+        <ui-icon v-if="hover" class="h-9 p-1.5 border-2 rounded-full" variant="play" />
       </transition>
     </div>
   </div>

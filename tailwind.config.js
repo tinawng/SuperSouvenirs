@@ -13,7 +13,8 @@ module.exports = {
         }
       },
       fontSize: {
-        '2xs': '.60rem',
+        '2xs': '.65rem',
+        '3xs': '.50rem',
       }
     },
     screens: {
