@@ -14,23 +14,23 @@
       <h1 class="mr-4 md:mr-8 small opacity-20">Albums</h1>
     </div>
     <div class="album-library">
-      <img class="rounded h-full w-full" src="/covers/cover1.jpg" alt="" />
-      <div style="--curr-pos: 0">
+      <img class="rounded h-full w-full" src="/covers/cover1.jpg" alt="" style="--i: 1; --n: 0"/>
+      <div style="--i: 1; --n: 1">
         <h2 class="-mb-1"><b>Maggot Brain</b></h2>
         <span class="opacity-70">Funkadelic</span>
       </div>
-      <img class="rounded h-full w-full" src="/covers/cover3.jpg" alt="" />
-      <div style="--curr-pos: 1">
+      <img class="rounded h-full w-full" src="/covers/cover3.jpg" alt="" style="--i: 2; --n: 0"/>
+      <div style="--i: 2; --n: 1">
         <h2 class="-mb-1"><b>African Rock</b></h2>
         <span class="opacity-70">Akira Ishikawa</span>
       </div>
-      <img class="rounded h-full w-full" src="/covers/cover5.jpg" alt="" />
-      <div style="--curr-pos: 2">
+      <img class="rounded h-full w-full" src="/covers/cover5.jpg" alt="" style="--i: 3; --n: 0"/>
+      <div style="--i: 3; --n: 1">
         <h2 class="-mb-1"><b>Black Gold</b></h2>
         <span class="opacity-70">Wu Tang Vs Jimi Hendrix</span>
       </div>
-      <img class="rounded h-full w-full" src="/covers/cover6.jpg" alt="" />
-      <div style="--curr-pos: 3">
+      <img class="rounded h-full w-full" src="/covers/cover6.jpg" alt="" style="--i: 4; --n: 0"/>
+      <div style="--i: 4; --n: 1">
         <h2 class="-mb-1"><b>My Favorite Tune</b></h2>
         <span class="opacity-70">Ryo Fukui</span>
       </div>
@@ -129,7 +129,15 @@ export default {
   }
 }
 
-.album-library > div {
+.album-library > * {
+  --row: calc(var(--i) / var(--nb-col));
+  order: calc(var(--row)*2 );
+}
+
+/* .album-library > div {
   order: calc(var(--nb-col) + var(--curr-pos));
 }
+.album-library > img {
+  order: calc(var(--nb-col) + var(--curr-pos));
+} */
 </style>
