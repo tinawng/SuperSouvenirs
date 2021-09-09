@@ -13,26 +13,20 @@
       <h1 class="mr-4 md:mr-8 small opacity-20">Playlist</h1>
       <h1 class="mr-4 md:mr-8 small opacity-20">Albums</h1>
     </div>
-    <div class="album-library">
-      <img class="rounded h-full w-full" src="/covers/cover1.jpg" alt="" style="--i: 1; --n: 0"/>
-      <div style="--i: 1; --n: 1">
-        <h2 class="-mb-1"><b>Maggot Brain</b></h2>
-        <span class="opacity-70">Funkadelic</span>
-      </div>
-      <img class="rounded h-full w-full" src="/covers/cover3.jpg" alt="" style="--i: 2; --n: 0"/>
-      <div style="--i: 2; --n: 1">
-        <h2 class="-mb-1"><b>African Rock</b></h2>
-        <span class="opacity-70">Akira Ishikawa</span>
-      </div>
-      <img class="rounded h-full w-full" src="/covers/cover5.jpg" alt="" style="--i: 3; --n: 0"/>
-      <div style="--i: 3; --n: 1">
-        <h2 class="-mb-1"><b>Black Gold</b></h2>
-        <span class="opacity-70">Wu Tang Vs Jimi Hendrix</span>
-      </div>
-      <img class="rounded h-full w-full" src="/covers/cover6.jpg" alt="" style="--i: 4; --n: 0"/>
-      <div style="--i: 4; --n: 1">
-        <h2 class="-mb-1"><b>My Favorite Tune</b></h2>
-        <span class="opacity-70">Ryo Fukui</span>
+    <div ref="lib" class="album-library">
+      <img
+        v-for="(album, index) in albums"
+        :key="album.cover"
+        class="rounded h-full w-full"
+        :src="album.cover"
+        alt=""
+        :style="items_positions_array[0][index]"
+      />
+      <div v-for="(album, index) in albums" :key="album.title" :style="`${items_positions_array[1][index]}`">
+        <h2 class="-mb-1">
+          <b>{{album.title}}</b>
+        </h2>
+        <span class="opacity-70">{{album.artiste_name}}</span>
       </div>
     </div>
   </div>
@@ -44,24 +38,81 @@ export default {
     isDown: false,
     startX: 0,
     scrollLeft: 0,
+    item_per_row: 4,
 
     albums: [],
   }),
+  computed: {
+    items_positions_array: function () {
+      var arr = [[], []];
+
+      for (let i = 0; i < this.albums.length; i++) {
+        var curr_row = Math.floor(i / this.item_per_row) * 2;
+        var first_of_row = i % parseInt(this.item_per_row) === 0;
+
+        var cover_position = `order: ${this.item_per_row * curr_row + i};`;
+        var description_position = `order: ${this.item_per_row * (curr_row + 1) + i};`;
+
+        if (first_of_row) description_position += `grid-column-start: 1;`;
+
+        arr[0].push(cover_position);
+        arr[1].push(description_position);
+      }
+
+      return arr;
+    },
+  },
 
   created() {
     this.albums = [
       {
         title: "Maggot Brain",
         artiste_name: "Funkadelic",
-        cover: "a1s2d3f4",
-        release_year: 1971,
-        label: "	Westbound Records",
-        genre: ["funk", "soul"],
-        mood: 1,
-        track_list: [],
-        track_notes: [],
-        added_on: null,
+        cover: "/covers/cover1.jpg",
       },
+      {
+        title: "African Rock",
+        artiste_name: "Akira Ishikawa",
+        cover: "/covers/cover3.jpg",
+      },
+      {
+        title: "Black Gold",
+        artiste_name: "Wu Tang Vs Jimi Hendrix",
+        cover: "/covers/cover5.jpg",
+      },
+      {
+        title: "My Favorite Tune",
+        artiste_name: "Ryo Fukui",
+        cover: "/covers/cover6.jpg",
+      },
+      {
+        title: "Black Gold",
+        artiste_name: "Wu Tang Vs Jimi Hendrix",
+        cover: "/covers/cover5.jpg",
+      },
+      {
+        title: "My Favorite Tune",
+        artiste_name: "Ryo Fukui",
+        cover: "/covers/cover6.jpg",
+      },
+      {
+        title: "African Rock",
+        artiste_name: "Akira Ishikawa",
+        cover: "/covers/cover3.jpg",
+      },
+
+      // {
+      //   title: "Maggot Brain",
+      //   artiste_name: "Funkadelic",
+      //   cover: "a1s2d3f4",
+      //   release_year: 1971,
+      //   label: "	Westbound Records",
+      //   genre: ["funk", "soul"],
+      //   mood: 1,
+      //   track_list: [],
+      //   track_notes: [],
+      //   added_on: null,
+      // },
     ];
   },
 
@@ -69,29 +120,49 @@ export default {
     const slider = this.$refs.aled;
 
     var self = this;
-    slider.addEventListener("mousedown", (e) => {
-      self.isDown = true;
-      slider.classList.add("active");
-      self.startX = e.pageX - slider.offsetLeft;
-      self.scrollLeft = slider.scrollLeft;
-    });
-    slider.addEventListener("mouseleave", () => {
-      self.isDown = false;
-      slider.classList.remove("active");
-    });
-    slider.addEventListener("mouseup", () => {
-      self.isDown = false;
-      slider.classList.remove("active");
-    });
+    slider.addEventListener(
+      "mousedown",
+      (e) => {
+        self.isDown = true;
+        slider.classList.add("active");
+        self.startX = e.pageX - slider.offsetLeft;
+        self.scrollLeft = slider.scrollLeft;
+      },
+      { passive: true }
+    );
+    slider.addEventListener(
+      "mouseleave",
+      () => {
+        self.isDown = false;
+        slider.classList.remove("active");
+      },
+      { passive: true }
+    );
+    slider.addEventListener(
+      "mouseup",
+      () => {
+        self.isDown = false;
+        slider.classList.remove("active");
+      },
+      { passive: true }
+    );
     slider.addEventListener("mousemove", (e) => {
       if (!self.isDown) return;
       e.preventDefault();
       const x = e.pageX - slider.offsetLeft;
       const walk = (x - self.startX) * 1; //scroll-fast
       slider.scrollLeft = self.scrollLeft - walk;
-      console.log(self.scrollLeft + walk);
-      console.log(slider.scrollLeft);
     });
+
+    this.item_per_row = window.getComputedStyle(this.$refs.lib).getPropertyValue("--item-per-row");
+    window.addEventListener(
+      "resize",
+      () => {
+        if (this.$refs.lib)
+          this.item_per_row = window.getComputedStyle(this.$refs.lib).getPropertyValue("--item-per-row");
+      },
+      { passive: true }
+    );
   },
 };
 </script>
@@ -120,24 +191,12 @@ export default {
 .album-library {
   @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-1;
 
-  --nb-col: 2;
+  --item-per-row: 2;
   @media (min-width: 1081px) {
-    --nb-col: 4;
+    --item-per-row: 4;
   }
   @media (min-width: 1920px) {
-    --nb-col: 6;
+    --item-per-row: 6;
   }
 }
-
-.album-library > * {
-  --row: calc(var(--i) / var(--nb-col));
-  order: calc(var(--row)*2 );
-}
-
-/* .album-library > div {
-  order: calc(var(--nb-col) + var(--curr-pos));
-}
-.album-library > img {
-  order: calc(var(--nb-col) + var(--curr-pos));
-} */
 </style>
