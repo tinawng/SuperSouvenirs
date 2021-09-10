@@ -22,7 +22,7 @@
         alt=""
         :style="items_positions_array[0][index]"
       />
-      <div v-for="(album, index) in albums" :key="album.title" :style="`${items_positions_array[1][index]}`">
+      <div v-for="(album, index) in albums" :key="album.title" class="mb-6" :style="`${items_positions_array[1][index]}`">
         <h2 class="-mb-1">
           <b>{{album.title}}</b>
         </h2>
@@ -175,7 +175,7 @@ export default {
   @apply flex flex-col;
 }
 .page__container > * {
-  @apply px-20;
+  @apply px-12;
 }
 
 .vibe-card__container {
