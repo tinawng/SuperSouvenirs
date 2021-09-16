@@ -12,7 +12,7 @@
             </span>
           </h6>
         </div>
-        <div class="mt-16 text-center">
+        <div class="mt-12 text-center">
           <p class="text-base md:text-xl lg:text-3xl"><b>祈り - Prayer = Sala</b></p>
           <span class="text-sm md:text-base lg:text-xl opacity-70">Akira Ishikawa</span>
         </div>
@@ -22,7 +22,7 @@
           <ui-icon class="h-5 md:h-6 lg:h-7" variant="more" />
           <ui-icon class="h-5 md:h-6 lg:h-7" variant="plus" />
         </div>
-        <ui-progress-bar class="mb-10 mx-auto" />
+        <ui-progress-bar class="mb-6 mx-auto" />
         <div class="side-player__controls ">
           <ui-icon class="h-6 md:h-7 lg:h-8" variant="previous" />
           <ui-icon class="h-12 md:h-16 lg:h-20" variant="play" />
@@ -40,14 +40,15 @@ export default {};
 <style lang="postcss" scoped>
 .side-player__container {
   @apply relative;
-  min-width: 25vw;
+  min-width: 35vw;
 }
 .side-player__container_fixed {
   @apply fixed;
-  @apply h-full w-1/4;
+  @apply h-full;
+  width: 35vw;
   @apply p-8 pb-6 md:pt-12 md:px-12;
   @apply flex flex-col justify-between;
-  @apply bg-brand-secondary border-r-2;
+  /* @apply bg-brand-secondary border-r-2; */
 }
 
 

@@ -18,7 +18,7 @@
         v-for="(album, index) in albums"
         :key="album.cover"
         class="rounded h-full w-full"
-        :src="album.cover"
+        :src="'data:image/webp;base64,'+album.cover_small"
         alt=""
         :style="items_positions_array[0][index]"
       />
@@ -26,7 +26,7 @@
         <h2 class="-mb-1">
           <b>{{album.title}}</b>
         </h2>
-        <span class="opacity-70">{{album.artiste_name}}</span>
+        <span class="opacity-70">{{album.artist_name}}</span>
       </div>
     </div>
   </div>
@@ -63,47 +63,47 @@ export default {
     },
   },
 
-  created() {
+  async created() {
     this.albums = [
       {
         title: "Maggot Brain",
-        artiste_name: "Funkadelic",
+        artist_name: "Funkadelic",
         cover: "/covers/cover1.jpg",
       },
       {
         title: "African Rock",
-        artiste_name: "Akira Ishikawa",
+        artist_name: "Akira Ishikawa",
         cover: "/covers/cover3.jpg",
       },
       {
         title: "Black Gold",
-        artiste_name: "Wu Tang Vs Jimi Hendrix",
+        artist_name: "Wu Tang Vs Jimi Hendrix",
         cover: "/covers/cover5.jpg",
       },
       {
         title: "My Favorite Tune",
-        artiste_name: "Ryo Fukui",
+        artist_name: "Ryo Fukui",
         cover: "/covers/cover6.jpg",
       },
       {
         title: "Black Gold",
-        artiste_name: "Wu Tang Vs Jimi Hendrix",
+        artist_name: "Wu Tang Vs Jimi Hendrix",
         cover: "/covers/cover5.jpg",
       },
       {
         title: "My Favorite Tune",
-        artiste_name: "Ryo Fukui",
+        artist_name: "Ryo Fukui",
         cover: "/covers/cover6.jpg",
       },
       {
         title: "African Rock",
-        artiste_name: "Akira Ishikawa",
+        artist_name: "Akira Ishikawa",
         cover: "/covers/cover3.jpg",
       },
 
       // {
       //   title: "Maggot Brain",
-      //   artiste_name: "Funkadelic",
+      //   artist_name: "Funkadelic",
       //   cover: "a1s2d3f4",
       //   release_year: 1971,
       //   label: "	Westbound Records",
@@ -114,6 +114,11 @@ export default {
       //   added_on: null,
       // },
     ];
+
+    
+
+      this.albums = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums`);
+      console.log(this.albums);
   },
 
   mounted() {
@@ -175,12 +180,12 @@ export default {
   @apply flex flex-col;
 }
 .page__container > * {
-  @apply px-12;
+  @apply pl-4 pr-12;
 }
 
 .vibe-card__container {
   overflow: scroll;
-  max-width: 75vw;
+  max-width: 65vw;
   @apply py-8;
   @apply flex;
 }
