@@ -17,16 +17,15 @@
       <img
         v-for="(album, index) in albums"
         :key="album.cover"
-        class="rounded h-full w-full"
-        :src="'data:image/webp;base64,'+album.cover_small"
-        alt=""
+        class="album_cover"
         :style="items_positions_array[0][index]"
+        :src="'data:image/webp;base64,'+album.cover_small"
       />
       <div v-for="(album, index) in albums" :key="album.title" class="mb-6" :style="`${items_positions_array[1][index]}`">
-        <h2 class="-mb-1">
-          <b>{{album.title}}</b>
-        </h2>
-        <span class="opacity-70">{{album.artist_name}}</span>
+        <p class="album_title" >
+          {{album.title}}
+        </p>
+        <span class="album_artist">{{album.artist_name}}</span>
       </div>
     </div>
   </div>
@@ -64,61 +63,7 @@ export default {
   },
 
   async created() {
-    this.albums = [
-      {
-        title: "Maggot Brain",
-        artist_name: "Funkadelic",
-        cover: "/covers/cover1.jpg",
-      },
-      {
-        title: "African Rock",
-        artist_name: "Akira Ishikawa",
-        cover: "/covers/cover3.jpg",
-      },
-      {
-        title: "Black Gold",
-        artist_name: "Wu Tang Vs Jimi Hendrix",
-        cover: "/covers/cover5.jpg",
-      },
-      {
-        title: "My Favorite Tune",
-        artist_name: "Ryo Fukui",
-        cover: "/covers/cover6.jpg",
-      },
-      {
-        title: "Black Gold",
-        artist_name: "Wu Tang Vs Jimi Hendrix",
-        cover: "/covers/cover5.jpg",
-      },
-      {
-        title: "My Favorite Tune",
-        artist_name: "Ryo Fukui",
-        cover: "/covers/cover6.jpg",
-      },
-      {
-        title: "African Rock",
-        artist_name: "Akira Ishikawa",
-        cover: "/covers/cover3.jpg",
-      },
-
-      // {
-      //   title: "Maggot Brain",
-      //   artist_name: "Funkadelic",
-      //   cover: "a1s2d3f4",
-      //   release_year: 1971,
-      //   label: "	Westbound Records",
-      //   genre: ["funk", "soul"],
-      //   mood: 1,
-      //   track_list: [],
-      //   track_notes: [],
-      //   added_on: null,
-      // },
-    ];
-
-    
-
       this.albums = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums`);
-      console.log(this.albums);
   },
 
   mounted() {
@@ -194,7 +139,7 @@ export default {
 }
 
 .album-library {
-  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-3 gap-y-1;
+  @apply grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-0;
 
   --item-per-row: 2;
   @media (min-width: 1081px) {
@@ -203,5 +148,18 @@ export default {
   @media (min-width: 1920px) {
     --item-per-row: 6;
   }
+}
+
+.album_cover {
+  @apply h-full w-full;
+  @apply rounded-md border border-opacity-70;
+}
+.album_title {
+  @apply mt-1.5 mb-0.5 md:mb-px lg:-mb-1;
+  @apply text-xl md:text-lg lg:text-base font-semibold leading-none md:leading-none lg:leading-none;
+}
+.album_artist {
+  @apply opacity-60;
+  @apply text-lg md:text-base lg:text-xs leading-none md:leading-none lg:leading-none;
 }
 </style>
