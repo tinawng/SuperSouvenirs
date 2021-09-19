@@ -1,7 +1,6 @@
 <template>
   <div class="layout__container">
-    <ui-side-player />
-    <Nuxt />
+   <Nuxt />
   </div>
 </template>
 

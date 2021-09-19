@@ -7,9 +7,9 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          'primary': '#333333', // DF4F4F c8c8c8 333333
-          'primary-light': '#E36665',
-          'secondary': '#FFF', // F5DED4 181a1c F2F2F3
+          'primary': '#181818',
+          'secondary-dark': '#F3F3F3',
+          'secondary': '#FFF',
         }
       },
       fontSize: {
