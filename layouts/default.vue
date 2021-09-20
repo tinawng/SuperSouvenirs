@@ -1,6 +1,8 @@
 <template>
   <div class="layout__container">
-   <Nuxt />
+    <Nuxt />
+    
+    <ui-modals-album />
   </div>
 </template>
 

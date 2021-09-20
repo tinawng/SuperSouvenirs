@@ -21,8 +21,13 @@
         :style="items_positions_array[0][index]"
         :src="'data:image/webp;base64,'+album.cover_small"
       />
-      <div v-for="(album, index) in albums" :key="album.title" class="mb-4" :style="`${items_positions_array[1][index]}`">
-        <p class="album_title" >
+      <div
+        v-for="(album, index) in albums"
+        :key="album.title"
+        class="mb-4"
+        :style="`${items_positions_array[1][index]}`"
+      >
+        <p class="album_title">
           {{album.title}}
         </p>
         <span class="album_artist">{{album.artist_name}}</span>
@@ -63,7 +68,7 @@ export default {
   },
 
   async created() {
-      this.albums = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums`);
+    this.albums = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums`);
   },
 
   mounted() {

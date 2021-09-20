@@ -1,6 +1,5 @@
 <template>
   <div class="page__container" :style="css_vars">
-
     <div v-if="left_panel === 'flow'" class="max-w-sm w-full justify-self-end">
       <h3 class="px-1.5 text-right bg-brand-primary text-brand-secondary"><b>CURRENT FLOW</b></h3>
       <div class="mt-4 px-2 flex justify-between items-center">
@@ -17,7 +16,7 @@
     </div>
     <div v-else-if="left_panel === 'queue'" class="max-w-sm w-full justify-self-end">
       <h3 class="px-1.5 text-right bg-brand-primary text-brand-secondary"><b>QUEUE</b></h3>
-      <h4> 01. Take Me 4:53</h4>
+      <h4>01. Take Me 4:53</h4>
     </div>
 
     <div class="relative justify-self-center">
@@ -33,7 +32,7 @@
 
     <div class="flex flex-col justify-around h-full" @click="changeTitle">
       <div></div>
-      
+
       <div>
         <div class="pb-1.5 overflow-hidden">
           <transition name="slide-in" mode="out-in">
@@ -66,10 +65,10 @@ export default {
     cover_wear_scale: 1,
     cover_wear_angle: 0,
 
-    left_panel: "queue" // ['flow', 'playlist']
+    left_panel: "queue", // ['flow', 'playlist']
   }),
   computed: {
-    css_vars: function () {
+    css_vars() {
       let css_vars = "";
 
       // Cover wear

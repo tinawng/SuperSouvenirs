@@ -48,7 +48,7 @@ export default {
   },
   data: () => ({ value: false }),
   computed: {
-    css_var: function () {
+    css_var() {
       return "--size: " + this.size + "px";
     },
   },
