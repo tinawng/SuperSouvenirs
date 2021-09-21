@@ -26,13 +26,10 @@ html {
 }
 
 h1 {
-  @apply text-2xl md:text-4xl font-black;
-}
-h1.small {
-  @apply text-base md:text-2xl;
+  @apply text-3xl md:text-4xl lg:text-5xl font-black leading-none md:leading-none lg:leading-none;
 }
 h2 {
-  @apply text-2xl;
+  @apply text-xl md:text-2xl lg:text-3xl;
 }
 h3 {
   @apply text-sm lg:text-base;
@@ -114,6 +111,13 @@ h4 {
 }
 
 
+@font-face {
+  font-family: 'Helvetica Now Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../../static/fonts/helvetica/HelveticaNowDisplay-Bold.otf') format('woff2');
+}
 @font-face {
   font-family: 'Helvetica Now Display';
   font-style: normal;

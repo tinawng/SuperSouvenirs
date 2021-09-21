@@ -15,6 +15,9 @@ module.exports = {
       fontSize: {
         '2xs': '.65rem',
         '3xs': '.50rem',
+      },
+      height: {
+        'fit': 'fit-content',
       }
     },
     screens: {
