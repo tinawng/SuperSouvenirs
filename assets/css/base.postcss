@@ -35,14 +35,36 @@ h3 {
   @apply text-sm lg:text-base;
 }
 h4 {
-  @apply text-2xs tracking-widest;
+  @apply text-xs lg:text-sm;
+}
+h5 {
+  @apply text-3xs tracking-widest;
 }
 
-.slide-in-enter-active, .slide-in-leave-active {
-  transition: all .6s ease;
+/* 💫 Animations */
+.slide-fade-leave-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .8s;
 }
-.slide-in-enter, .slide-in-leave-to {
-  @apply transform translate-y-16;
+.slide-fade-enter-active, .slide-fade-enter-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .4s;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(5rem);
+  opacity: 0;
+}
+
+.slide-fade-short-enter-active, .slide-fade-short-enter-active, .slide-fade-short-leave-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .4s;
+}
+.slide-fade-short-enter, .slide-fade-short-leave-to {
+  transform: translateY(.5rem);
+  opacity: 0;
 }
 
 

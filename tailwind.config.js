@@ -2,7 +2,7 @@ module.exports = {
   darkMode: false,
   theme: {
     transitionDuration: {
-      DEFAULT: '250ms',
+      DEFAULT: '200ms',
     },
     extend: {
       colors: {

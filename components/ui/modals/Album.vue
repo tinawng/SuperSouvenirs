@@ -1,22 +1,34 @@
 <template>
   <transition name="slide-fade">
-    <div v-if="show_modal" class="container">
+    <div v-if="show_modal" class="modal_container" v-click-outside="closeModal">
       <div class="relative h-fit w-full">
         <img class="cover" :src="album.cover" alt="cover" />
         <div class="absolute top-6 -right-6 w-6 h-full bg-brand-primary"></div>
         <div class="absolute -bottom-6 -right-6 w-full h-6 bg-brand-primary"></div>
       </div>
-      <div class="ml-12 p-8 text-right break-words">
-        <h1>{{album.artist_name}}</h1>
-        <h2>{{album.title}}</h2>
-        <h3>{{album_duration}} min</h3>
-        <ui-button>EDIT</ui-button>
-      </div>
-      <div class="relative px-8 col-span-2">
-        <div v-for="track in album.track_list" :key="track._id" class="flex justify-between">
-          <h3>{{track.title}}</h3>
-          <h3>2min34</h3>
+      <div class="ml-12 p-6 pb-0 -mb-0 flex flex-col justify-between">
+        <div class="text-right break-words">
+          <h1>{{album.artist_name}}</h1>
+          <h2>{{album.title}}</h2>
+          <h3>{{album_duration}} min</h3>
         </div>
+        <div class="flex justify-end">
+        <ui-button dark>LISTEN</ui-button>
+        <!-- <ui-button class="absolute bottom-0 right-0">EDIT</ui-button> -->
+        </div>
+      </div>
+      <div class="track_list">
+        <div
+          v-for="(track, index) in album.track_list"
+          :key="track._id"
+          class="track_list__row"
+        >
+          <h4><span class="font-light tracking-widest text-2xs mr-3">{{index.toString().padStart(2, '0')}}</span>{{track.title}}</h4>
+          <h4>2min34</h4>
+        </div>
+      </div>
+      <div class="flex items-end">
+        <h5 class="-mb-2">FLAC 16 bits 44.1KHz</h5>
         <span class="release_year">{{album.release_year}}</span>
       </div>
     </div>
@@ -99,6 +111,125 @@ export default {
           metadatas: {},
           path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
         },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
+        {
+          _id: "6149a197fb0cb153bc456f86",
+          title: "Super Stupid",
+          duration: 237.46666666666667,
+          metadatas: {},
+          path: "[1971] Maggot Brain [Funkadelic]/07 Wars of Armageddon.flac",
+        },
       ],
     };
   },
@@ -106,25 +237,44 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-.container {
-  height: 100vh;
+.modal_container {
+  height: 96vh;
   width: 100vh;
-  @apply fixed top-0 z-50;
+  @apply fixed z-50;
+  top: 2vh;
   left: calc(50% - 50vh);
   @apply p-8;
-  @apply bg-brand-secondary;
+  @apply bg-brand-secondary overflow-hidden;
   box-shadow: 0 51px 55px -7px rgba(0, 0, 0, 0.2), 0 64px 78px 3px rgba(0, 0, 0, 0.14),
     0 9px 86px 8px rgba(0, 0, 0, 0.12);
   @apply grid grid-cols-2;
+  grid-template-rows: 1fr 1fr 4.5rem;
 }
 
 .cover {
   @apply w-full;
 }
 
+.track_list {
+  @apply relative;
+  @apply mt-14 px-4;
+  @apply col-span-2 overflow-scroll;
+}
+.track_list__row {
+  @apply ml-2 py-1 pl-4 pr-2;
+  @apply flex justify-between;
+  @apply border-l-2 border-brand-primary;
+  @apply transition-colors;
+  transition-duration: 75ms;
+}
+.track_list__row:hover {
+
+  @apply bg-brand-secondary-dark;
+}
+
 .release_year {
   font-family: "Helvetica Now Display";
-  @apply absolute right-0 -bottom-20;
+  @apply absolute right-6 -bottom-12;
   @apply font-semibold;
   font-size: 9rem;
   line-height: 1;
