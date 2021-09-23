@@ -14,8 +14,10 @@ export default {
 
 <style lang="postcss" scoped>
 .button_container {
-    @apply px-2 py-0.5;
+    @apply px-2 py-0.5 lg:px-4 lg:py-1;
     @apply border border-brand-primary border-opacity-0;
+
+    @apply text-base lg:text-2xl;
 
     @apply transition-colors;
     transition-duration: 400ms;
@@ -29,7 +31,8 @@ export default {
 }
 
 .button_dark {
-  @apply px-3 py-1 text-sm;
+  @apply px-3 py-1 lg:px-5 lg:py-1.5;
+  @apply text-sm lg:text-2xl;
   @apply bg-brand-primary text-brand-secondary;
 }
 .button_dark:hover {

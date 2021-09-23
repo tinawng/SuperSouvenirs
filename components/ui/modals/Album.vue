@@ -3,8 +3,8 @@
     <div v-if="show_modal" class="modal_container" v-click-outside="closeModal">
       <div class="relative h-fit w-full">
         <img class="cover" :src="album.cover" alt="cover" />
-        <div class="absolute top-6 -right-6 w-6 h-full bg-brand-primary"></div>
-        <div class="absolute -bottom-6 -right-6 w-full h-6 bg-brand-primary"></div>
+        <div class="cover__right_lip"></div>
+        <div class="cover__bottom_lip"></div>
       </div>
       <div class="ml-12 p-6 pb-0 -mb-0 flex flex-col justify-between">
         <div class="text-right break-words">
@@ -245,6 +245,7 @@ export default {
 .modal_container {
   height: 96vh;
   width: 100vh;
+  max-width: 80vw;
   @apply fixed z-50;
   top: 2vh;
   left: calc(50% - 50vh);
@@ -253,16 +254,26 @@ export default {
   box-shadow: 0 51px 55px -7px rgba(0, 0, 0, 0.2), 0 64px 78px 3px rgba(0, 0, 0, 0.14),
     0 9px 86px 8px rgba(0, 0, 0, 0.12);
   @apply grid grid-cols-2;
-  grid-template-rows: 1fr 1fr 4.5rem;
+  grid-template-rows: 1fr 1fr 12.5%;
 }
 
 .cover {
   @apply w-full;
 }
+.cover__right_lip {
+  @apply absolute top-6 -right-6 lg:top-8 lg:-right-8;
+  @apply h-full w-6 lg:w-8;
+  @apply  bg-brand-primary;
+}
+.cover__bottom_lip {
+  @apply absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8;
+  @apply h-6 lg:h-8 w-full;
+  @apply bg-brand-primary;
+}
 
 .track_list {
   @apply relative;
-  @apply mt-14 px-4;
+  @apply mt-14 lg:mt-20 px-4;
   @apply col-span-2 overflow-scroll;
 }
 .track_list__row {
@@ -289,7 +300,11 @@ export default {
   font-family: "Helvetica Now Display";
   @apply absolute right-6 -bottom-12;
   @apply font-semibold;
-  font-size: 9rem;
   line-height: 1;
+  font-size: 9rem;
+  @media (min-width: 1920px) {
+    @apply -bottom-20;
+    font-size: 15rem
+  }
 }
 </style>
