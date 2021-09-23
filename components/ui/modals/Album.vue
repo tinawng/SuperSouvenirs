@@ -10,21 +10,20 @@
         <div class="text-right break-words">
           <h1>{{album.artist_name}}</h1>
           <h2>{{album.title}}</h2>
-          <h3>{{album_duration}} min</h3>
+          <h3>{{album_duration}}</h3>
         </div>
         <div class="flex justify-end">
-        <ui-button dark>LISTEN</ui-button>
-        <!-- <ui-button class="absolute bottom-0 right-0">EDIT</ui-button> -->
+          <ui-button class="mr-3">EDIT</ui-button>
+          <ui-button dark>LISTEN</ui-button>
         </div>
       </div>
       <div class="track_list">
-        <div
-          v-for="(track, index) in album.track_list"
-          :key="track._id"
-          class="track_list__row"
-        >
-          <h4><span class="font-light tracking-widest text-2xs mr-3">{{index.toString().padStart(2, '0')}}</span>{{track.title}}</h4>
-          <h4>2min34</h4>
+        <div v-for="(track, index) in album.track_list" :key="track._id" class="track_list__row" :class="{selected: track._id==selected_track_id}">
+          <h4>
+            <span class="font-light tracking-widest text-2xs mr-3">{{index.toString().padStart(2, '0')}}</span
+            >{{track.title}}
+          </h4>
+          <h4>{{minSecDuration(track.duration)}}</h4>
         </div>
       </div>
       <div class="flex items-end">
@@ -37,16 +36,22 @@
 
 <script>
 import modal from "~/mixins/Modal.js";
+import duration_formatter from "~/mixins/DurationFormatter.js";
 export default {
-  mixins: [modal],
+  mixins: [modal, duration_formatter],
   data: () => ({
     modal_name: "album",
+    selected_track_id: '6149a197fb0cb153bc456f7e',
 
     album: {},
   }),
   computed: {
     album_duration() {
-      return 31;
+      let time = this.album?.track_list.reduce((acc, curr) => {
+        acc = acc.duration || acc;
+        return (acc += curr.duration);
+      });
+      return this.minDuration(time);
     },
   },
 
@@ -264,12 +269,20 @@ export default {
   @apply ml-2 py-1 pl-4 pr-2;
   @apply flex justify-between;
   @apply border-l-2 border-brand-primary;
+  @apply cursor-pointer;
   @apply transition-colors;
   transition-duration: 75ms;
 }
 .track_list__row:hover {
-
   @apply bg-brand-secondary-dark;
+  @apply cursor-pointer;
+  transition-duration: 150ms;
+}
+.track_list__row:active {
+  @apply bg-brand-primary text-brand-secondary;
+}
+.track_list__row.selected {
+  @apply bg-brand-primary text-brand-secondary;
 }
 
 .release_year {
