@@ -3,8 +3,8 @@
     <div v-if="show_modal" class="modal_container" v-click-outside="closeModal">
       <div class="relative h-fit w-full">
         <img class="cover" :src="album.cover" alt="cover" />
-        <div class="cover__right_lip"></div>
-        <div class="cover__bottom_lip"></div>
+        <div class="cover__right_lip" />
+        <div class="cover__bottom_lip" />
       </div>
       <div class="ml-12 p-6 pb-0 -mb-0 flex flex-col justify-between">
         <div class="text-right break-words">
@@ -18,7 +18,12 @@
         </div>
       </div>
       <div class="track_list">
-        <div v-for="(track, index) in album.track_list" :key="track._id" class="track_list__row" :class="{selected: track._id==selected_track_id}">
+        <div
+          v-for="(track, index) in album.track_list"
+          :key="track._id"
+          class="track_list__row"
+          :class="{selected: track._id==selected_track_id}"
+        >
           <h4>
             <span class="font-light tracking-widest text-2xs mr-3">{{index.toString().padStart(2, '0')}}</span
             >{{track.title}}
@@ -41,7 +46,7 @@ export default {
   mixins: [modal, duration_formatter],
   data: () => ({
     modal_name: "album",
-    selected_track_id: '6149a197fb0cb153bc456f7e',
+    selected_track_id: "6149a197fb0cb153bc456f7e",
 
     album: {},
   }),
@@ -263,7 +268,7 @@ export default {
 .cover__right_lip {
   @apply absolute top-6 -right-6 lg:top-8 lg:-right-8;
   @apply h-full w-6 lg:w-8;
-  @apply  bg-brand-primary;
+  @apply bg-brand-primary;
 }
 .cover__bottom_lip {
   @apply absolute -bottom-6 -right-6 lg:-bottom-8 lg:-right-8;
@@ -304,7 +309,7 @@ export default {
   font-size: 9rem;
   @media (min-width: 1920px) {
     @apply -bottom-20;
-    font-size: 15rem
+    font-size: 15rem;
   }
 }
 </style>

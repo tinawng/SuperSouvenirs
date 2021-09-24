@@ -1,16 +1,19 @@
 <template>
   <div class="layout__container">
     <Nuxt />
-    
-    <ui-modals-album />
+
+    <floating-player/>
+    <modals-album />
   </div>
 </template>
 
 <script>
+import FloatingPlayer from '../components/FloatingPlayer.vue';
 export default {};
 </script>
 
 <style lang="postcss">
+FloatingPlayer
 .layout__container {
   @apply relative;
   @apply min-h-screen;

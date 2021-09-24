@@ -4,7 +4,7 @@
       <h3 class="px-1.5 text-right bg-brand-primary text-brand-secondary"><b>CURRENT FLOW</b></h3>
       <div class="mt-4 px-2 flex justify-between items-center">
         <h4>CHILL</h4>
-        <ui-selector />
+        <selector />
         <h4>FUNKY</h4>
       </div>
       <div class="mt-4 px-2 flex justify-between items-center">
@@ -25,8 +25,8 @@
         <img class="cover_wear" src="/covers/wear.png" alt="" />
       </div>
       <div class="ply">
-        <ui-progress-bar />
-        <ui-player class="mt-4" />
+        <progress-bar />
+        <player class="mt-4" />
       </div>
     </div>
 

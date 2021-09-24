@@ -12,8 +12,8 @@
       <h2 class="font-semibold">City Pop</h2>
       <div class="relative mt-6 flex">
         <!-- <div class="absolute right-1 bottom-1 z-10 flex">
-          <div class="h-8 w-8 p-1 mr-1.5 rounded-full bg-brand-secondary shadow-md"><ui-icon variant="previous" :stroke="1"/></div>
-          <div class="h-8 w-8 p-1 rounded-full bg-brand-secondary shadow-md"><ui-icon variant="next" :stroke="1"/></div>
+          <div class="h-8 w-8 p-1 mr-1.5 rounded-full bg-brand-secondary shadow-md"><icon variant="previous" :stroke="1"/></div>
+          <div class="h-8 w-8 p-1 rounded-full bg-brand-secondary shadow-md"><icon variant="next" :stroke="1"/></div>
         </div> -->
         <album-showcase />
       </div>
