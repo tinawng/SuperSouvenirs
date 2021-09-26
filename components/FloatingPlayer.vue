@@ -5,7 +5,7 @@
         <h3 class="font-black leading-none">A3. 動物 - Animals = Mnama.flac</h3>
         <h3 class="font-semibold">Akira Ishikawa</h3>
       </div>
-      <ui-button icon="play" :size="12" />
+      <ui-button icon="play"/>
       <div class="player__right_lip"></div>
       <div class="player__bottom_lip"></div>
     </div>
@@ -19,7 +19,7 @@ export default {};
 <style lang="postcss" scoped>
 .player_container {
   @apply fixed bottom-12 right-12;
-  @apply w-60 h-16;
+  @apply w-60 lg:w-96 h-16 lg:h-24;
   @apply border border-brand-primary bg-brand-secondary;
   @apply shadow-xl;
 }

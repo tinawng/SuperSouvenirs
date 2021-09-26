@@ -1,5 +1,6 @@
 <template>
   <div class="layout__container">
+    <screen-debug/>
     <Nuxt />
 
     <floating-player/>
@@ -8,12 +9,9 @@
 </template>
 
 <script>
-import FloatingPlayer from '../components/FloatingPlayer.vue';
-export default {};
 </script>
 
 <style lang="postcss">
-FloatingPlayer
 .layout__container {
   @apply relative;
   @apply min-h-screen;
