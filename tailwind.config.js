@@ -17,7 +17,11 @@ module.exports = {
         '3xs': '.50rem',
       },
       height: {
+        '18': '4.5rem',
         'fit': 'fit-content',
+      },
+      width: {
+        '18': '4.5rem'
       }
     },
     screens: {

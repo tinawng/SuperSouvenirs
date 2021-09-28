@@ -1,9 +1,11 @@
 <template>
   <div class="layout__container">
-    <screen-debug/>
-    <Nuxt />
+    <screen-debug />
 
-    <floating-player/>
+    <Nuxt />
+    <audio-player/>
+
+    <floating-player />
     <modals-album />
   </div>
 </template>

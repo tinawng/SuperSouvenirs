@@ -12,7 +12,7 @@
 <script>
 export default {
   props: {
-    size: { type: Number, default: 'auto' },
+    size: { type: [Number, String], default: 'auto' },
     dark: Boolean,
     icon: String,
   },
