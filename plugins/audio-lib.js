@@ -16,7 +16,7 @@ var audio = {
     audio_player: undefined,
     initialize: function (html_audio_player) {
         html_audio_player.onloadedmetadata = (e) => {
-            // 💡 Find a use for this ?
+            // 💡 Find a use for this (link html player & webaudio) ?
             // var media_stream = new MediaStream(html_audio_player.captureStream())
             // const source = this.getAudioContext().createMediaStreamSource(media_stream);
 

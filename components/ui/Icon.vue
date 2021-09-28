@@ -1,7 +1,5 @@
 <template>
   <svg
-    :width="size"
-    :height="size"
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
@@ -22,6 +20,10 @@
     <g v-else-if="variant == 'next'">
       <polyline points="9 18 15 12 9 6"></polyline>
     </g>
+    <g v-else-if="variant == 'skip'">
+      <polyline points="9 18 15 12 9 6"></polyline>
+      <line x1="18" y1="6" x2="18" y2="18"></line>
+    </g>
     <g v-else-if="variant == 'previous'">
       <polyline points="15 18 9 12 15 6" />
     </g>
@@ -34,6 +36,15 @@
     <g v-else-if="variant == 'dot'">
       <circle cx="12" cy="12" r="2" fill="currentColor"></circle>
     </g>
+    <g v-else-if="variant == 'more'">
+      <circle cx="12" cy="12" r="1"></circle>
+      <circle cx="19" cy="12" r="1"></circle>
+      <circle cx="5" cy="12" r="1"></circle>
+    </g>
+    <g v-else-if="variant == 'plus'">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </g>
   </svg>
 </template>
 
@@ -41,10 +52,6 @@
 export default {
   props: {
     variant: String,
-    size: {
-      type: Number,
-      default: 24,
-    },
     stroke: {
       type: Number,
       default: 1.5,

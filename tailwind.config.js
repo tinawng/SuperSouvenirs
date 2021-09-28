@@ -2,20 +2,35 @@ module.exports = {
   darkMode: false,
   theme: {
     transitionDuration: {
-      DEFAULT: '250ms',
+      DEFAULT: '200ms',
     },
     extend: {
       colors: {
         brand: {
-          'primary': '#333333', // DF4F4F c8c8c8 333333
-          'primary-light': '#E36665',
-          'secondary': '#F2F2F3', // F5DED4 181a1c F2F2F3
+          'primary': '#181818',
+          'secondary-dark': '#F3F3F3',
+          'secondary': '#FFF',
         }
       },
       fontSize: {
-        '2xs': '.60rem',
+        '2xs': '.65rem',
+        '3xs': '.50rem',
       },
-    }
+      height: {
+        '18': '4.5rem',
+        'fit': 'fit-content',
+      },
+      width: {
+        '18': '4.5rem'
+      }
+    },
+    screens: {
+      'portrait': { 'raw': '(orientation: portrait)' },
+      // 'sm': '1024px',
+      'md': '1081px',
+      'lg': '1920px',
+      'xl': '2560px',
+    },
   },
   variants: {
   },

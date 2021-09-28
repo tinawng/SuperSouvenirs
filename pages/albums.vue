@@ -62,7 +62,9 @@
     <div class="col-span-2 flex flex-col">
       <div class="mb-4 flex justify-between items-end  pb-2 border-b-2 border-brand-primary">
         <h1>All</h1>
-        <h4 class="flex items-center uppercase"><ui-button class="mr-2" icon="down" rounded :size="16" :icon_size="14" /> by years</h4>
+        <h4 class="flex items-center uppercase">
+          <button class="mr-2" icon="down" rounded :size="16" :icon_size="14" /> by years
+        </h4>
       </div>
       <div class="grid grid-cols-8 gap-4">
         <img class="album_cover" src="/covers/cover1.jpg" alt="" />

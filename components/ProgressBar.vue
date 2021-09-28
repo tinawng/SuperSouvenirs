@@ -12,7 +12,7 @@ export default {};
 <style lang="postcss" scoped>
 .progress_bar__container {
   @apply relative;
-  @apply h-4 w-96;
+  @apply h-4 w-10/12;
   @apply -mt-1;
   @apply flex items-center;
 }

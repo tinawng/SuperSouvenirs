@@ -27,7 +27,8 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/audio-lib.js' },
-    { src: '@/plugins/vue-click-outside.js', mode: 'client' }
+    { src: '@/plugins/directives/vue-click-outside.js', mode: 'client' },
+    { src: '@/plugins/directives/vue-anim.js', mode: 'client' }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -39,8 +40,12 @@ export default {
     '@nuxtjs/pwa',
   ],
 
+  env: {
+    BACKEND_URL: process.env.BACKEND_URL
+  },
+
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: ['@nuxt/http'],
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {

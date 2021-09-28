@@ -1,28 +1,10 @@
 <template>
   <button
-    :class="[
-      'button__container',
-      icon
-        ? !!this.$slots.default
-          ? 'button__icon px-5 bg-brand-100'
-          : 'button__icon'
-        : small ? 'button__text_small' : 'button__text',
-      dark ? 'button__dark' : '',
-      rounded ? 'button__rounded' : '',
-      squared ? 'button__squared' : '',
-      disabled ? 'opacity-40 pointer-events-none' : ''
-    ]"
-    :style="css_var"
-    @click="local_callback"
-    @mouseenter="callback_hover"
+    class="button_container"
+    :class="{'button_dark': dark}"
+    :style="`min-height: ${size/4}rem; min-width: ${size/4}rem; height: ${size/4}rem; width: ${size/4}rem`"
   >
-    <ui-icon
-      v-if="icon"
-      :class="!!this.$slots.default ? 'mr-4' : 'mx-auto'"
-      :variant="icon"
-      :size="icon_size"
-      :stroke="icon_stroke"
-    />
+    <ui-icon v-if="icon" class="h-full w-full" :variant="icon" />
     <slot />
   </button>
 </template>
@@ -30,84 +12,40 @@
 <script>
 export default {
   props: {
-    icon: String,
+    size: { type: [Number, String], default: 'auto' },
     dark: Boolean,
-    rounded: Boolean,
-    squared: Boolean,
-    disabled: Boolean,
-    small: Boolean,
-    size: { type: Number, default: 56 },
-    icon_size: { type: Number, default: 24 },
-    icon_stroke: { type: Number, default: 1.5 },
-    callback: { type: Function, default: () => {} },
-    callback_hover: { type: Function, default: () => {} },
-  },
-  model: {
-    prop: "value",
-    event: "change",
-  },
-  data: () => ({ value: false }),
-  computed: {
-    css_var: function () {
-      return "--size: " + this.size + "px";
-    },
-  },
-  methods: {
-    local_callback() {
-      this.value = !this.value;
-      this.$emit("update:value", this.value);
-      this.callback();
-    },
+    icon: String,
   },
 };
 </script>
 
 <style lang="postcss" scoped>
-.button__container {
-  height: var(--size);
-  @apply font-medium text-brand-primary;
+.button_container {
+  @apply px-2 py-0.5 lg:px-4 lg:py-1;
+  @apply border border-brand-primary border-opacity-0;
+
+  @apply text-base lg:text-2xl;
+
   @apply transition-colors;
+  transition-duration: 400ms;
 }
 
-.button__text {
-  @apply px-8;
-  /* @apply bg-brand-primary; */
+.button_container:hover {
+  @apply border-opacity-100;
+}
+.button_container:active {
+  @apply bg-brand-secondary-dark;
 }
 
-.button__text_small {
-  @apply px-6;
-  /* @apply bg-brand-100; */
-  @apply text-xs tracking-wide leading-loose;
-}
-
-.button__icon {
-  min-width: var(--size);
-  @apply flex items-center;
-}
-
-.button__dark,
-.button__container:hover {
+.button_dark {
+  @apply px-3 py-1 lg:px-5 lg:py-1.5;
+  @apply text-sm lg:text-2xl;
   @apply bg-brand-primary text-brand-secondary;
 }
-.button__container:active {
-  /* @apply bg-brand-700 text-brand-100; */
+.button_dark:hover {
+  @apply bg-brand-secondary text-brand-primary;
 }
-
-.button__dark:hover {
-  @apply bg-brand-primary;
-}
-.button__dark:active {
-  @apply bg-brand-primary-light;
-}
-
-.button__rounded {
-  @apply rounded-full;
-}
-
-.button__squared {
-  min-width: var(--size);
-  width: var(--size);
-  max-width: var(--size);
-  @apply px-0;
+.button_dark:active {
+  @apply bg-brand-secondary-dark;
 }
 </style>

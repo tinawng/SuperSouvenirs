@@ -1,124 +1,65 @@
 <template>
-  <div class="page__container" :style="css_vars">
-    <div class="max-w-sm w-full justify-self-end">
-      <h3 class="px-1.5 text-right bg-brand-primary text-brand-secondary"><b>CURRENT FLOW</b></h3>
-      <div class="mt-4 px-2 flex justify-between items-center">
-        <h4>CHILL</h4>
-        <ui-selector />
-        <h4>FUNKY</h4>
+  <div class="w-full">
+    <section class="top_section">
+      <span class="title" @click="openModal('album')">Super Souvenirs</span>
+      <div class="menu_nav">
+        <span class="selected">Albums</span>
+        <span>Flow</span>
+        <span>Playlist</span>
       </div>
-      <div class="mt-4 px-2 flex justify-between items-center">
-        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 bg-brand-primary text-brand-secondary">CITY POP</h4>
-        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 border border-brand-primary">SOUL</h4>
-        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 bg-brand-primary text-brand-secondary">JAZZ</h4>
-        <h4 class="h-4.5 text-center rounded-md px-2 py-0.5 w-20 border border-brand-primary">FUSION</h4>
+    </section>
+    <section class="album_section">
+      <h2 class="font-semibold">City Pop</h2>
+      <div class="relative mt-6 flex">
+        <!-- <div class="absolute right-1 bottom-1 z-10 flex">
+          <div class="h-8 w-8 p-1 mr-1.5 rounded-full bg-brand-secondary shadow-md"><icon variant="previous" :stroke="1"/></div>
+          <div class="h-8 w-8 p-1 rounded-full bg-brand-secondary shadow-md"><icon variant="next" :stroke="1"/></div>
+        </div> -->
+        <album-showcase />
       </div>
-    </div>
-    <div class="relative justify-self-center">
-      <div class="cover__container">
-        <img class="h-full" src="/covers/cover7.jpg" alt="" />
-        <img class="cover_wear" src="/covers/wear.png" alt="" />
+    </section>
+    <section class="album_section">
+      <h2 class="font-semibold">Jazz ~ Fusion</h2>
+      <div class="relative mt-6 flex">
+        <album-showcase backward />
       </div>
-      <div class="ply">
-        <ui-progress-bar />
-        <ui-player class="mt-4" />
-      </div>
-    </div>
-    <div class="flex flex-col justify-around h-full" @click="changeTitle">
-      <div></div>
-      
-      <div>
-        <div class="pb-1.5 overflow-hidden">
-          <transition name="slide-in" mode="out-in">
-            <h1 :key="artist">{{artist}}</h1>
-          </transition>
-        </div>
-
-        <div class="overflow-hidden">
-          <transition name="slide-in" mode="out-in">
-            <h2 :key="title">{{title}}</h2>
-          </transition>
-        </div>
-      </div>
-
-      <div class="overflow-hidden">
-        <transition name="slide-in" mode="out-in">
-          <h4>1982 - LABEL ALFA - FLAC 16/44.1kHz</h4>
-        </transition>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
 <script>
-export default {
-  data: () => ({
-    artist: "Casiopea",
-    title: "Asayake",
-
-    cover_wear_scale: 1,
-    cover_wear_angle: 0,
-  }),
-  computed: {
-    css_vars: function () {
-      let css_vars = "";
-
-      // Cover wear
-      css_vars += `--cover-wear-scale: ${this.cover_wear_scale};`;
-      css_vars += `--cover-wear-angle: ${this.cover_wear_angle}deg;`;
-
-      return css_vars;
-    },
-  },
-
-  created() {
-    this.cover_wear_scale = 1 + Math.random() / 3;
-    this.cover_wear_angle = Math.floor(Math.random() * 4) * 90;
-  },
-
-  methods: {
-    changeTitle() {
-      this.artist = this.artist == "Casiopea" ? "Ryo Fukui" : "Casiopea";
-      this.title = this.title == "Asayake" ? "I Want To Talk About You" : "Asayake";
-    },
-  },
-};
+import modal from "~/mixins/Modal.js";
+export default { mixins: [modal] };
 </script>
 
 <style lang="postcss" scoped>
-.page__container {
-  @apply grid grid-cols-3 items-center;
-  grid-template-rows: calc(100vh - 256px) 128px;
-}
-
-.nav__container {
-  @apply h-60;
-  @apply my-auto pl-12;
-  @apply flex flex-col justify-evenly;
-  @apply uppercase;
-}
-
-.cover__container {
-  @apply relative;
-  @apply h-96 w-96;
-  @apply overflow-hidden;
-  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 0 16px 24px 2px rgba(0, 0, 0, 0.24),
-    0 6px 30px 5px rgba(0, 0, 0, 0.24);
-  /* box-shadow: 0 11px 15px -7px rgba(48, 48, 48, 0.6), 0 24px 38px 3px rgba(48, 48, 48, 0.36),
-    0 9px 46px 8px rgba(0, 0, 0, 0.12); */
-  /* box-shadow: 0 11px 10px -7px rgba(48, 48, 48, 0.6), 0 16px 38px 3px rgba(48, 48, 48, 0.36),
-    0 9px 30px 8px rgba(0, 0, 0, 0.12); */
-}
-.cover_wear {
-  @apply absolute top-0 left-0;
-  @apply h-full;
-  @apply opacity-90;
-  transform: rotate(var(--cover-wear-angle)) scaleX(var(--cover-wear-scale)) scaleY(var(--cover-wear-scale));
-}
-
-.ply {
-  @apply absolute;
-  top: calc(100% + 2.25rem);
+section {
   @apply w-full;
+}
+
+.top_section {
+  @apply h-64 lg:h-80;
+  @apply flex flex-col items-center justify-around;
+}
+.title {
+  font-family: "Helvetica Now Display";
+  @apply text-8xl font-extrabold;
+}
+.menu_nav {
+  @apply w-1/2;
+  @apply flex justify-between;
+  @apply text-2xl;
+}
+.menu_nav > .selected {
+  @apply font-bold;
+  @apply border-brand-primary border-b-2;
+}
+
+.album_section {
+  @apply w-3/4;
+  @apply mb-6 mx-auto py-6 px-8;
+  @apply rounded-xl bg-brand-secondary-dark;
+}
+.album_overflow {
 }
 </style>

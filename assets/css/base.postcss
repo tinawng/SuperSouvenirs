@@ -8,7 +8,8 @@ html {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 
-  font-family: "Microgramma";
+  font-family: "SF Pro Display";
+  @apply bg-brand-secondary text-brand-primary;
 }
 
 :focus-visible {
@@ -25,44 +26,124 @@ html {
 }
 
 h1 {
-  @apply text-6xl font-extrabold;
+  @apply text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black leading-none md:leading-none lg:leading-none xl:leading-none;
 }
 h2 {
-  @apply text-3xl;
+  @apply text-xl md:text-2xl lg:text-3xl xl:text-4xl;
 }
 h3 {
-  @apply text-base;
+  @apply text-sm lg:text-lg xl:text-xl;
 }
 h4 {
-  @apply text-2xs tracking-widest;
+  @apply text-xs lg:text-sm xl:text-lg;
+}
+h5 {
+  @apply text-3xs lg:text-xs tracking-widest;
 }
 
-.slide-in-enter-active, .slide-in-leave-active {
-  transition: all .6s ease;
+/* 💫 Animations */
+.slide-fade-leave-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .8s;
 }
-.slide-in-enter, .slide-in-leave-to {
-  @apply transform translate-y-16;
+.slide-fade-enter-active, .slide-fade-enter-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .4s;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(5rem);
+  opacity: 0;
+}
+
+.slide-fade-short-enter-active, .slide-fade-short-enter-active, .slide-fade-short-leave-active {
+  transition-property: transform, opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: .4s;
+}
+.slide-fade-short-enter, .slide-fade-short-leave-to {
+  transform: translateY(.5rem);
+  opacity: 0;
 }
 
 
 @font-face {
-  font-family: 'Microgramma';
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 100;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Ultralight.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 200;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Thin.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 300;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Light.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('../../static/fonts/microgramma/HelveticaNowDisplay-Regular.otf') format('woff2');
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Regular.otf') format('woff2');
 }
 @font-face {
-  font-family: 'Microgramma';
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Medium.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-SemiBold.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('../../static/fonts/microgramma/HelveticaNowDisplay-ExtraBold.otf') format('woff2');
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Bold.otf') format('woff2');
 }
 @font-face {
-  font-family: 'Microgramma';
+  font-family: 'SF Pro Display';
   font-style: normal;
   font-weight: 800;
   src: local(''),
-       url('../../static/fonts/microgramma/HelveticaNowDisplay-Black.otf') format('woff2');
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Heavy.otf') format('woff2');
+}
+@font-face {
+  font-family: 'SF Pro Display';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('../../static/fonts/sf-pro/SF-Pro-Display-Black.otf') format('woff2');
+}
+
+
+@font-face {
+  font-family: 'Helvetica Now Display';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('../../static/fonts/helvetica/HelveticaNowDisplay-Bold.otf') format('woff2');
+}
+@font-face {
+  font-family: 'Helvetica Now Display';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+       url('../../static/fonts/helvetica/HelveticaNowDisplay-ExtraBold.otf') format('woff2');
 }
