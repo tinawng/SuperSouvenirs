@@ -5,7 +5,7 @@ export default {
         },
 
         minSecDuration: function(secondes) {
-            return `${Math.floor(secondes/60)}min${Math.floor(secondes%60)}`
+            return `${Math.floor(secondes/60)}min${Math.floor(secondes%60).toString().padStart(2, '0')}`
         }
     }
 }
