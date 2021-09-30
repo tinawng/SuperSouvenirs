@@ -1,39 +1,33 @@
 export const state = () => ({
-    current_track: {
-        "_id": "6152db59fb0cb153bc4ecfc5",
-        "title": "01.Feather [Nujabes featuring Cise Starr & Akin from CYNE]",
-        "duration": 175.44997732426305
-    },
+    current_track_id: "61538338fb0cb153bc4f7fdd",
     current_album_id: "",
     albums: []
 })
 
 export const mutations = {
-    async retrieveAlbum(state, album_id) {
-        // state.albums.push(await this.$http.$get(`${process.env.BACKEND_URL}/library/album/${album_id}`));
+    cacheAlbum(state, album) {
+        state.albums.push(album);
     },
     selectAlbum(state, album_id) {
         state.current_album_id = album_id;
+    },
+    selectTrack(state, track_id) {
+        state.current_track_id = track_id;
     }
 }
 
 export const actions = {
-    //retrieve album
-    // https://vuex.vuejs.org/guide/actions.html#dispatching-actions
-
-
-    // logout({ commit }) {
-    //     commit('setUser', undefined);
-    //     commit('setToken', undefined);
-    // }
+    async retrieveAlbum({ commit }, album_id) {
+        let album = await this.$http.$get(`${process.env.BACKEND_URL}/library/album/${album_id}`);
+        commit('cacheAlbum', album);
+    }
 }
 
 export const getters = {
-    current_track: state => {
-        return state.current_track;
+    current_track: (state, getters) => {
+        return getters.current_album.track_list?.find(track => track._id === state.current_track_id) || {};
     },
     current_album: state => {
-        console.log(state.albums);
-        return state.albums[state.current_album_id] || {};
+        return state.albums.find(album => album._id === state.current_album_id) || {};
     }
 }

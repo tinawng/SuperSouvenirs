@@ -2,10 +2,10 @@
   <div v-if="track" class="player_container">
     <div class="relative h-full w-full p-2 flex justify-between">
       <div class="flex flex-col justify-between">
-        <h3 class="font-black leading-none">{{track.title}}</h3>
-        <h3 class="font-semibold">{{album.artist_name}}</h3>
+        <h4 class="font-black leading-none">{{track.title}}</h4>
+        <h4 class="font-semibold">{{album.artist_name}}</h4>
       </div>
-      <ui-button icon="play" @click.native="play"/>
+      <ui-button icon="play" @click.native="play" />
       <div class="player__right_lip"></div>
       <div class="player__bottom_lip"></div>
     </div>
@@ -25,9 +25,9 @@ export default {
 
   methods: {
     play() {
-      this.$nuxt.$emit('player-play');
-    }
-  }
+      this.$nuxt.$emit("player-play");
+    },
+  },
 };
 </script>
 
@@ -35,7 +35,7 @@ export default {
 .player_container {
   @apply fixed bottom-12 right-12;
   @apply w-64 lg:w-96 h-18 lg:h-24;
-  @apply border border-brand-primary bg-brand-secondary;
+  @apply border border-current bg-brand-secondary;
   @apply shadow-xl;
 }
 
