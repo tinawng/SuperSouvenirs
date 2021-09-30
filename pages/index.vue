@@ -1,29 +1,36 @@
 <template>
   <div class="w-full">
-    <section class="top_section">
-      <span class="title" @click="openModal('album')">Super Souvenirs</span>
-      <div class="menu_nav">
-        <span class="selected">Albums</span>
-        <span>Flow</span>
-        <span>Playlist</span>
+    <section class="pt-6 flex justify-between items-center">
+      <span class="opacity-0 text-lg font-black" style="font-family: 'Helvetica Now Display';">SUPER SOUVENIR</span>
+      <div class="flex justify-between" style="min-width: 25%">
+        <span class="font-semibold">ALBUMS</span>
+        <span class="ml-6 font-semibold">PLAYLIST</span>
+        <span class="ml-6 font-semibold">FLOW</span>
       </div>
     </section>
-    <section class="album_section">
-      <h2 class="font-semibold">City Pop</h2>
-      <div class="relative mt-6 flex">
-        <!-- <div class="absolute right-1 bottom-1 z-10 flex">
-          <div class="h-8 w-8 p-1 mr-1.5 rounded-full bg-brand-secondary shadow-md"><icon variant="previous" :stroke="1"/></div>
-          <div class="h-8 w-8 p-1 rounded-full bg-brand-secondary shadow-md"><icon variant="next" :stroke="1"/></div>
-        </div> -->
-        <album-showcase />
+    <section class="h-12 border-b border-current" />
+    <section class="hero_section">
+      <span class="hero__title">Super<br />Souvenirs</span>
+      <div class="flex flex-col justify-around text-brand-primary-light">
+        <div>
+          <h3>You′ll hear these <i>rare gems</i></h3>
+          <h3>Plus other スーパーお<span class="font-thin">土産</span></h3>
+          <h3>from radio's world of commercials</h3>
+        </div>
+        <div>
+          <h3>See how many you can remember</h3>
+          <h3>I′ll bet you'll be surprised,</h3>
+          <h3>and delighted!</h3>
+        </div>
+      </div>
+      <div class="text-right">
+        <a class="text-lg font-medium aa" @click="openModal('album')">View All Albums</a>
       </div>
     </section>
-    <section class="album_section">
-      <h2 class="font-semibold">Jazz ~ Fusion</h2>
-      <div class="relative mt-6 flex">
-        <album-showcase backward />
-      </div>
-    </section>
+    <div class="mt-24">
+      <album-showcase />
+      <album-showcase class="mt-4" backward />
+    </div>
   </div>
 </template>
 
@@ -34,32 +41,17 @@ export default { mixins: [modal] };
 
 <style lang="postcss" scoped>
 section {
-  @apply w-full;
+  @apply max-w-7xl;
+  @apply mx-auto px-4;
 }
 
-.top_section {
-  @apply h-64 lg:h-80;
-  @apply flex flex-col items-center justify-around;
+.hero_section {
+  @apply pt-6;
+  @apply grid;
+  grid-template-columns: 42% 25% 33%;
 }
-.title {
+.hero__title {
   font-family: "Helvetica Now Display";
   @apply text-8xl font-extrabold;
-}
-.menu_nav {
-  @apply w-1/2;
-  @apply flex justify-between;
-  @apply text-2xl;
-}
-.menu_nav > .selected {
-  @apply font-bold;
-  @apply border-brand-primary border-b-2;
-}
-
-.album_section {
-  @apply w-3/4;
-  @apply mb-6 mx-auto py-6 px-8;
-  @apply rounded-xl bg-brand-secondary-dark;
-}
-.album_overflow {
 }
 </style>
