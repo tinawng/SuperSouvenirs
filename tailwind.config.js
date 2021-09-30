@@ -8,6 +8,7 @@ module.exports = {
       colors: {
         brand: {
           'primary': '#181818',
+          'primary-light': '#B0B0B0',
           'secondary-dark': '#F3F3F3',
           'secondary': '#FFF',
         }
