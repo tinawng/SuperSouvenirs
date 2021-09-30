@@ -3,9 +3,9 @@
     <section class="pt-6 flex justify-between items-center">
       <span class="opacity-0 text-lg font-black" style="font-family: 'Helvetica Now Display';">SUPER SOUVENIR</span>
       <div class="flex justify-between" style="min-width: 25%">
-        <span class="font-semibold">ALBUMS</span>
-        <span class="ml-6 font-semibold">PLAYLIST</span>
-        <span class="ml-6 font-semibold">FLOW</span>
+        <a class="font-semibold">ALBUMS</a>
+        <a class="ml-6 font-semibold">PLAYLIST</a>
+        <a class="ml-6 font-semibold">FLOW</a>
       </div>
     </section>
     <section class="h-12 border-b border-current" />
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="text-right">
-        <a class="text-lg font-medium aa" @click="openModal('album')">View All Albums</a>
+        <span class="a_underlined text-lg font-medium" @click="openModal('album')">View All Albums</span>
       </div>
     </section>
     <div class="mt-24">

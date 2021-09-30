@@ -43,18 +43,38 @@ h5 {
 
 a {
   @apply relative;
-  @apply pb-0.5;
+  @apply pb-1;
+  @apply cursor-pointer;
+}
+a:after {
+  content: '';
+  @apply absolute bottom-px left-0;
+  @apply h-px w-full;
+  @apply bg-brand-primary;
+
+  transform: scalex(0);
+  transform-origin: right;
+  transition: transform .6s cubic-bezier(.19,1,.22,1);
+}
+a:hover:after {
+  transform: scalex(1);
+  transform-origin: left;
+}
+.a_underlined {
+  @apply relative;
+  @apply pb-1;
   @apply border-b border-current;
   @apply cursor-pointer;
 }
-a:before {
+.a_underlined:before {
   content: '';
   @apply absolute top-0 left-0;
   @apply h-full w-full;
   @apply border-b-2 border-current;
   @apply opacity-0 transition-opacity;
+  transition-duration: 300ms;
 }
-a:hover:before {
+.a_underlined:hover:before {
   @apply opacity-100;
 }
 
