@@ -41,7 +41,8 @@ export default { mixins: [modal] };
 
 <style lang="postcss" scoped>
 section {
-  @apply max-w-7xl;
+  @apply w-4/5;
+  max-width: 1600px;
   @apply mx-auto px-4;
 }
 
