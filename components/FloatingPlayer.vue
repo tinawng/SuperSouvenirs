@@ -1,5 +1,5 @@
 <template>
-  <div v-if="track" class="player_container">
+  <div v-if="track._id" class="player_container">
     <div class="relative h-full w-full p-2 flex justify-between">
       <div class="flex flex-col justify-between">
         <h4 class="font-black leading-none">{{track.title}}</h4>
@@ -33,7 +33,7 @@ export default {
 
 <style lang="postcss" scoped>
 .player_container {
-  @apply fixed bottom-12 right-12;
+  @apply fixed bottom-12 right-12 z-50;
   @apply w-64 lg:w-96 h-18 lg:h-24;
   @apply border border-current bg-brand-secondary;
   @apply shadow-xl;

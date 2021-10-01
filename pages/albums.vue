@@ -1,7 +1,13 @@
 <template>
-  <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-    <cards-album v-for="album in albums" :key="album._id" v-bind="album"/>
-  </section>
+  <div class="w-full">
+    
+    <section class="mb-20 pt-6">
+      <span class="section__title">Albums</span>
+    </section>
+    <section class="grid grid-cols-4 gap-8">
+      <cards-album v-for="album in albums" :key="album._id" v-bind="album" />
+    </section>
+  </div>
 </template>
 
 <script>
@@ -11,19 +17,13 @@ export default {
 
   computed: {
     albums() {
-      return this.$store.getters["library/albums"];
+      let albums = this.$store.getters["library/albums"];
+      if (albums.length === 0) this.$store.dispatch("library/syncAlbums");
+      return albums;
     },
   },
-
-  created() {
-    this.$store.dispatch('library/syncAlbums')
-  }};
+};
 </script>
 
 <style lang="postcss" scoped>
-section {
-  @apply w-4/5;
-  max-width: 1600px;
-  @apply mx-auto px-4;
-}
 </style>

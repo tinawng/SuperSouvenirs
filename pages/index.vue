@@ -1,16 +1,7 @@
 <template>
   <div class="w-full">
-    <section class="pt-6 flex justify-between items-center">
-      <span class="opacity-0 text-lg font-black" style="font-family: 'Helvetica Now Display';">SUPER SOUVENIR</span>
-      <div class="flex justify-between" style="min-width: 25%">
-        <a class="font-semibold">ALBUMS</a>
-        <a class="ml-6 font-semibold">PLAYLIST</a>
-        <a class="ml-6 font-semibold">FLOW</a>
-      </div>
-    </section>
-    <section class="h-12 border-b border-current" />
     <section class="hero_section">
-      <span class="hero__title">Super<br />Souvenirs</span>
+      <span class="section__title">Super<br />Souvenirs</span>
       <div class="flex flex-col justify-around text-brand-primary-light">
         <div>
           <h3>You′ll hear these <i>rare gems</i></h3>
@@ -24,7 +15,7 @@
         </div>
       </div>
       <div class="text-right">
-        <span class="a_underlined text-lg font-medium" @click="openModal('album')">View All Albums</span>
+        <span class="a_underlined text-base md:text-lg font-medium" @click="openModal('album')">View All Albums</span>
       </div>
     </section>
     <div class="mt-24">
@@ -40,19 +31,9 @@ export default { mixins: [modal] };
 </script>
 
 <style lang="postcss" scoped>
-section {
-  @apply w-4/5;
-  max-width: 1600px;
-  @apply mx-auto px-4;
-}
-
 .hero_section {
   @apply pt-6;
   @apply grid;
   grid-template-columns: 42% 25% 33%;
-}
-.hero__title {
-  font-family: "Helvetica Now Display";
-  @apply text-8xl font-extrabold;
 }
 </style>

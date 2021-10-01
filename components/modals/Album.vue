@@ -65,8 +65,8 @@ export default {
   },
 
   created() {
-    this.$store.dispatch("library/retrieveAlbum", "61538338fb0cb153bc4f7fd9");
-    this.$store.commit("library/selectAlbum", "61538338fb0cb153bc4f7fd9");
+    // this.$store.dispatch("library/retrieveAlbum", "61538338fb0cb153bc4f7fd9");
+    // this.$store.commit("library/selectAlbum", "61538338fb0cb153bc4f7fd9");
   },
 };
 </script>
@@ -76,7 +76,7 @@ export default {
   height: 96vh;
   width: 100vh;
   max-width: 80vw;
-  @apply fixed z-50;
+  @apply fixed z-40;
   top: 2vh;
   left: calc(50% - 50vh);
   @apply p-8;

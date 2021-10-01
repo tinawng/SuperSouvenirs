@@ -3,7 +3,7 @@
     <span class="hidden xl:contents">XL </span>
     <span class="hidden lg:contents">LG </span>
     <span class="hidden md:contents">MD </span>
-    <span class="hidden sm:contents">SM </span>
+    <span class="sm:contents">SM </span>
     <span>@ {{ innerWidth }} x {{ innerHeight }} </span>
     <span class="hidden portrait:contents">PORTAIT</span>
   </div>
