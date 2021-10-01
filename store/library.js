@@ -1,11 +1,14 @@
 export const state = () => ({
-    current_track_id: "61538338fb0cb153bc4f7fdd",
-    current_album_id: "",
-    albums: []
+    current_track_id: undefined,
+    current_album_id: undefined,
+    albums: [],
+
+    is_syncing: false
 })
 
 export const mutations = {
     cacheAlbum(state, album) {
+        state.albums = state.albums.filter(cached_album => cached_album._id !== album._id);
         state.albums.push(album);
     },
     selectAlbum(state, album_id) {
@@ -13,23 +16,29 @@ export const mutations = {
     },
     selectTrack(state, track_id) {
         state.current_track_id = track_id;
+    },
+    isSyncing(state, value) {
+        state.is_syncing = value;
     }
 }
 
 export const actions = {
     async syncAlbums({ state, commit }) {
-        // FIXME: Called twice ?
+        // 🛂 Prevent multiple *expensive* sync at the same time
+        if (state.is_syncing) return;
+        commit('isSyncing', true)
 
         let ids = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums_ids`);
         // 💡 if diff <= 3 we can cherry pick missing ones.
-        if (ids - state.albums.length <= 3) {
+        if (ids.length - state.albums.length <= 3) {
             // TODO: get album/album_id
         }
         else {
             let albums = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums`);
-            albums = albums.filter(album => state.albums.find(cached_album => cached_album._id != album._id));
             albums.forEach(album => commit('cacheAlbum', album));
         }
+
+        commit('isSyncing', false)
     },
 
     async retrieveAlbum({ commit }, album_id) {
@@ -41,7 +50,7 @@ export const actions = {
 export const getters = {
     albums: (state) => {
         return state.albums;
-     },
+    },
     current_track: (state, getters) => {
         return getters.current_album.track_list?.find(track => track._id === state.current_track_id) || {};
     },
