@@ -50,23 +50,24 @@ export default {
   }),
   computed: {
     album() {
-      return this.$store.getters["library/current_album"];
+      let album = this.$store.getters["library/current_album"];
+      console.log(album);
+      if (!album.track_list) this.$store.dispatch("library/retrieveAlbum", album._id);
+      return album;
     },
     current_track() {
       return this.$store.getters["library/current_track"];
     },
     album_duration() {
-      let time = this.album.track_list?.reduce((acc, curr) => {
-        acc = acc.duration || acc;
-        return (acc += curr.duration);
-      });
-      return this.minDuration(time);
+      let time;
+      if (this.album.track_list?.length) {
+        time = this.album.track_list.reduce((acc, curr) => {
+          acc = acc.duration || acc;
+          return (acc += curr.duration);
+        });
+      }
+      return time ? this.minDuration(time) : "-- min";
     },
-  },
-
-  created() {
-    // this.$store.dispatch("library/retrieveAlbum", "61538338fb0cb153bc4f7fd9");
-    // this.$store.commit("library/selectAlbum", "61538338fb0cb153bc4f7fd9");
   },
 };
 </script>

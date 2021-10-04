@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="text-right">
-        <span class="a_underlined text-base md:text-lg font-medium" @click="openModal('album')">View All Albums</span>
+        <NuxtLink tag="span" to="/albums" class="a_underlined text-base md:text-lg font-medium">View All Albums</NuxtLink>
       </div>
     </section>
     <div class="mt-24">
@@ -26,8 +26,6 @@
 </template>
 
 <script>
-import modal from "~/mixins/Modal.js";
-export default { mixins: [modal] };
 </script>
 
 <style lang="postcss" scoped>
