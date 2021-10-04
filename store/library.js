@@ -58,6 +58,7 @@ export const actions = {
         let ids = await this.$http.$get(`${process.env.BACKEND_URL}/library/albums_ids`);
         // 💡 if diff <= 3 we can cherry pick missing ones.
         if (ids.length - state.albums.length <= 3) {
+            console.error("TODO get album/album_id")
             // TODO: get album/album_id
         }
         else {
