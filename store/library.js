@@ -8,8 +8,35 @@ export const state = () => ({
 
 export const mutations = {
     cacheAlbum(state, album) {
-        state.albums = state.albums.filter(cached_album => cached_album._id !== album._id);
-        state.albums.push(album);
+        let cache_it = false;
+        let cached_album = state.albums.find(cached_album => cached_album._id === album._id);
+
+        // 🔍 Is already cached ?
+        if (!cached_album)
+            cache_it = true;
+        // 🍱 Is this the "full-informations" version of the album
+        else if (!cached_album.track_list && album.track_list) {
+            // 🗑️ Remove the incomplete version and cache the full one
+            state.albums = state.albums.filter(cached_album => cached_album._id !== album._id);
+            cache_it = true;
+        }
+        else
+            cache_it = false;
+
+        if (cache_it) {
+            state.albums.push(album);
+
+            var sortMethod = function (a, b) {
+                let score = 0;
+                score += a.title.localeCompare(b.title);
+                score += a.release_year > b.release_year ? 2 : 0;
+                score += a.release_year < b.release_year ? -2 : 0;
+                return score;
+            }
+
+            // ♻️ Re-set object for reactiity trigger
+            state.albums = [...state.albums].sort(sortMethod);
+        }
     },
     selectAlbum(state, album_id) {
         state.current_album_id = album_id;
