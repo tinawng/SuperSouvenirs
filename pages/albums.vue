@@ -4,7 +4,7 @@
       <span class="section__title">Albums</span>
     </section>
     <section class="grid grid-cols-4 gap-8">
-      <cards-album v-for="album in albums" :key="album._id" v-bind="album" @click.native="selectAlbum(album._id); openModal('album')" />
+      <cards-album v-for="album in albums" :key="album._id" v-bind="album" @click.native="openModal('album', album._id)" />
     </section>
   </div>
 </template>
@@ -21,12 +21,6 @@ export default {
       return albums;
     },
   },
-
-  methods: {
-    selectAlbum(album_id) {
-      this.$store.commit('library/selectAlbum', album_id);
-    }
-  }
 };
 </script>
 

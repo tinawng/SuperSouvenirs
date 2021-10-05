@@ -1,7 +1,10 @@
 <template>
   <button
     class="button_container"
-    :class="{'button_dark': dark}"
+    :class="{
+      'button_dark': dark,
+      'button_icon': icon && !this.$slots.default,
+      }"
     :style="`min-height: ${size/4}rem; min-width: ${size/4}rem; height: ${size/4}rem; width: ${size/4}rem`"
   >
     <ui-icon v-if="icon" class="h-full w-full" :variant="icon" />
@@ -28,6 +31,11 @@ export default {
 
   @apply transition-colors;
   transition-duration: 400ms;
+}
+
+.button_icon {
+  @apply p-0;
+  @apply border-0
 }
 
 .button_container:hover {

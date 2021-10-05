@@ -79,6 +79,9 @@ export const getters = {
     albums: (state) => {
         return state.albums;
     },
+    album: (state) => (album_id) => {
+        return state.albums.find(album => album._id === album_id);
+    },
     current_track: (state, getters) => {
         return getters.current_album.track_list?.find(track => track._id === state.current_track_id) || {};
     },

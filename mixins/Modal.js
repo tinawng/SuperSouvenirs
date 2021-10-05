@@ -22,8 +22,9 @@ export default {
     },
 
     methods: {
-        openModal(modal_name) {
+        openModal(modal_name, payload) {
             this.$nuxt.$emit(`modal-open:${modal_name}`);
+            if (payload) this.$nuxt.$emit(`modal-payload:${modal_name}`, payload);
             this.show_modal = true;
         },
         closeModal() {

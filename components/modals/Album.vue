@@ -23,7 +23,7 @@
           :key="track._id"
           class="track_list__row"
           :class="{selected: track._id==current_track._id}"
-          @click="$store.commit('library/selectTrack', track._id)"
+          @click="selectTrack(track._id)"
         >
           <h5>
             <span class="font-light tracking-widest text-2xs mr-3">{{(++index).toString().padStart(2, '0')}}</span
@@ -50,8 +50,7 @@ export default {
   }),
   computed: {
     album() {
-      let album = this.$store.getters["library/current_album"];
-      console.log(album);
+      let album = this.$store.getters["library/album"](this.payload);
       if (!album.track_list) this.$store.dispatch("library/retrieveAlbum", album._id);
       return album;
     },
@@ -69,6 +68,13 @@ export default {
       return time ? this.minDuration(time) : "-- min";
     },
   },
+
+  methods: {
+    selectTrack(track_id) {
+      this.$store.commit('library/selectAlbum', this.album._id);
+      this.$store.commit('library/selectTrack', track_id);
+    }
+  }
 };
 </script>
 
