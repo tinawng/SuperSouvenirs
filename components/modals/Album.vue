@@ -14,7 +14,8 @@
         </div>
         <div class="flex justify-end">
           <ui-button class="mr-3">EDIT</ui-button>
-          <ui-button dark>LISTEN</ui-button>
+          <!-- TODO: disable button if (!album.track_list) -->
+          <ui-button dark @click.native="playAlbum">LISTEN</ui-button>
         </div>
       </div>
       <div class="track_list">
@@ -70,6 +71,13 @@ export default {
   },
 
   methods: {
+    playAlbum() {
+      this.selectTrack(this.album.track_list[0]._id);
+      setTimeout(() => {
+        
+        this.$nuxt.$emit('player-play');
+      }, 100);
+    },
     selectTrack(track_id) {
       this.$store.commit('library/selectAlbum', this.album._id);
       this.$store.commit('library/selectTrack', track_id);

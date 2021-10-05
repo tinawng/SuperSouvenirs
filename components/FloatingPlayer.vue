@@ -1,13 +1,14 @@
 <template>
   <div ref="ply" v-if="track._id" class="floating_player_container">
     <div class="relative h-full w-full p-2 flex justify-between">
-      <div class="flex flex-col justify-between">
+      <div class="flex flex-col justify-between flex-grow">
         <h4 class="font-black leading-none">{{track.title}}</h4>
         <h4 class="font-semibold">{{album.artist_name}}</h4>
       </div>
-      <ui-button icon="play" @click.native="play" />
-      <div class="floating_player__right_lip"></div>
-      <div class="floating_player__bottom_lip"></div>
+      <ui-button class="h-5 w-5 my-auto mr-1.5" icon="skip" @click.native="play" />
+      <ui-button class="h-9 w-9 my-auto mr-1" icon="play" @click.native="play" />
+      <div class="floating_player__right_lip" />
+      <div class="floating_player__bottom_lip" />
     </div>
   </div>
 </template>
