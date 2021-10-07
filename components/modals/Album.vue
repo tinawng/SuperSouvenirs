@@ -6,14 +6,14 @@
         <div class="cover__right_lip" />
         <div class="cover__bottom_lip" />
       </div>
-      <div class="ml-12 p-6 pb-0 -mb-0 flex flex-col justify-between">
+      <div class="ml-12 p-6 pl-0 pb-0 -mb-0 flex flex-col justify-between">
         <div class="text-right break-words">
           <h1>{{album.artist_name}}</h1>
           <h2>{{album.title}}</h2>
           <h4>{{album_duration}}</h4>
         </div>
         <div class="flex justify-end">
-          <ui-button class="mr-3">EDIT</ui-button>
+          <ui-button class="mr-3" @click.native="editAlbum">EDIT</ui-button>
           <!-- TODO: disable button if (!album.track_list) -->
           <ui-button dark @click.native="playAlbum">LISTEN</ui-button>
         </div>
@@ -74,15 +74,22 @@ export default {
     playAlbum() {
       this.selectTrack(this.album.track_list[0]._id);
       setTimeout(() => {
-        
-        this.$nuxt.$emit('player-play');
+        this.$nuxt.$emit("player-play");
       }, 100);
     },
     selectTrack(track_id) {
-      this.$store.commit('library/selectAlbum', this.album._id);
-      this.$store.commit('library/selectTrack', track_id);
-    }
-  }
+      this.$store.commit("library/selectAlbum", this.album._id);
+      this.$store.commit("library/selectTrack", track_id);
+    },
+    editAlbum() {
+      this.closeModal();
+
+      // 💫 Wait for modal's animation to end
+      setTimeout(() => {
+        this.$router.push("/edit/" + this.album._id);
+      }, 600);
+    },
+  },
 };
 </script>
 

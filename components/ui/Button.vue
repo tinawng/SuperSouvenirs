@@ -4,6 +4,7 @@
     :class="{
       'button_dark': dark,
       'button_icon': icon && !this.$slots.default,
+      'button_disabled': disabled
       }"
     :style="`min-height: ${size/4}rem; min-width: ${size/4}rem; height: ${size/4}rem; width: ${size/4}rem`"
   >
@@ -18,6 +19,7 @@ export default {
     size: { type: [Number, String], default: 'auto' },
     dark: Boolean,
     icon: String,
+    disabled: Boolean
   },
 };
 </script>
@@ -55,5 +57,9 @@ export default {
 }
 .button_dark:active {
   @apply bg-brand-secondary-dark;
+}
+
+.button_disabled {
+  @apply opacity-40 pointer-events-none;
 }
 </style>
