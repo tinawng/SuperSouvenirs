@@ -27,8 +27,9 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/audio-lib.js' },
-    { src: '@/plugins/directives/vue-click-outside.js', mode: 'client' },
-    { src: '@/plugins/directives/vue-anim.js', mode: 'client' }
+    { src: '@/plugins/vuex-persist.js'},
+    { src: '@/plugins/directives/vue-click-outside.js'},
+    { src: '@/plugins/directives/vue-anim.js'}
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
