@@ -15,6 +15,9 @@ export default {
 
     html_audio_player.addEventListener('ended', () => {
       this.$nuxt.$emit('player-next');
+      setTimeout(() => {
+        this.$nuxt.$emit("player-play");
+      }, 100);
     })
 
     this.$nuxt.$on("player-play", () => {
