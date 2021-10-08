@@ -68,10 +68,9 @@ export default {
         this.album.track_list[old_position],
         this.album.track_list[new_position],
       ];
-
-    //   this.album.track_list = [...this.album.track_list];
-      // TODO: store mutation
-      // TODO: POST
+      
+      this.$store.commit('library/editAlbum', this.album);
+      this.$http.$post(`${process.env.BACKEND_URL}/library/album`, this.album)
     },
   },
 };

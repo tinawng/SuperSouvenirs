@@ -7,6 +7,11 @@ export const state = () => ({
 })
 
 export const mutations = {
+    updateAlbums(state, albums) {
+        // ♻️ Re-set object for reactivity triggering
+        state.albums = [...albums];
+    },
+
     cacheAlbum(state, album) {
         let cache_it = false;
         let cached_album = state.albums.find(cached_album => cached_album._id === album._id);
@@ -34,16 +39,23 @@ export const mutations = {
                 return score;
             }
 
-            // ♻️ Re-set object for reactiity trigger
-            state.albums = [...state.albums].sort(sortMethod);
+            this.commit("library/updateAlbums", state.albums.sort(sortMethod));
         }
     },
+    editAlbum(state, album) {
+        let index = state.albums.findIndex(cached_album => cached_album._id === album._id)
+        state.albums.splice(index, 1, album);
+
+        this.commit("library/updateAlbums", state.albums);
+    },
+    
     selectAlbum(state, album_id) {
         state.current_album_id = album_id;
     },
     selectTrack(state, track_id) {
         state.current_track_id = track_id;
     },
+
     isSyncing(state, value) {
         state.is_syncing = value;
     }
