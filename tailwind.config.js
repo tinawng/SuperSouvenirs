@@ -4,18 +4,19 @@ module.exports = {
     transitionDuration: {
       DEFAULT: '200ms',
     },
+    colors: {
+      black: '#4B4B4B',
+      white: '#F5F5F5',
+      gray: '#E4E1DE',
+      red: '#DD3C45',
+      orange: '#E7793D',
+      yellow: '#F9BC32',
+      green: '#43AD67',
+      blue: '#447DD9',
+    },
     extend: {
-      colors: {
-        brand: {
-          'primary': '#181818',
-          'primary-light': '#B0B0B0',
-          'secondary-dark': '#F3F3F3',
-          'secondary': '#FFF',
-        }
-      },
       fontSize: {
         '2xs': '.65rem',
-        '3xs': '.50rem',
       },
       height: {
         '18': '4.5rem',
@@ -27,7 +28,6 @@ module.exports = {
     },
     screens: {
       'portrait': { 'raw': '(orientation: portrait)' },
-      // 'sm': '1024px',
       'md': '1081px',
       'lg': '1920px',
       'xl': '2560px',
