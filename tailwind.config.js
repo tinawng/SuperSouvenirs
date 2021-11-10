@@ -2,11 +2,14 @@ module.exports = {
   darkMode: false,
   theme: {
     transitionDuration: {
-      DEFAULT: '200ms',
+      DEFAULT: '300ms',
     },
     colors: {
-      black: '#4B4B4B',
-      white: '#F5F5F5',
+      transparent: 'transparent',
+      black: '#000',
+      white: '#FFF',
+      dark: '#4B4B4B',
+      light: '#F5F5F5',
       gray: '#E4E1DE',
       red: '#DD3C45',
       orange: '#E7793D',

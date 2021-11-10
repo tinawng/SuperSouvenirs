@@ -9,7 +9,7 @@ html {
   touch-action: manipulation;
 
   font-family: "Biotif";
-  @apply bg-brand-secondary text-brand-primary;
+  @apply bg-white text-dark;
 }
 
 :focus-visible {
@@ -21,62 +21,11 @@ html {
 ::-webkit-scrollbar {
   @apply w-0 h-0;
 }
-::selection {
-  @apply bg-brand-primary text-brand-secondary;
-}
 
 h1 {
-  @apply text-3xl md:text-4xl lg:text-5xl xl:text-7xl font-black leading-none md:leading-none lg:leading-none xl:leading-none;
-}
-h2 {
-  @apply text-xl md:text-2xl lg:text-3xl xl:text-4xl;
-}
-h3 {
-  @apply text-sm md:text-lg leading-tight;
-}
-h4 {
-  @apply text-sm lg:text-lg xl:text-xl;
-}
-h5 {
-  @apply text-xs lg:text-sm xl:text-lg;
+  @apply text-4xl font-bold text-black;
 }
 
-a {
-  @apply relative;
-  @apply pb-1;
-  @apply cursor-pointer;
-}
-a:after {
-  content: '';
-  @apply absolute bottom-px left-0;
-  @apply h-px w-full;
-  @apply bg-brand-primary;
-
-  transform: scalex(0);
-  transform-origin: right;
-  transition: transform .6s cubic-bezier(.19,1,.22,1);
-}
-a:hover:after {
-  transform: scalex(1);
-  transform-origin: left;
-}
-.a_underlined {
-  @apply relative;
-  @apply pb-1;
-  @apply border-b border-current;
-  @apply cursor-pointer;
-}
-.a_underlined:before {
-  content: '';
-  @apply absolute top-0 left-0;
-  @apply h-full w-full;
-  @apply border-b-2 border-current;
-  @apply opacity-0 transition-opacity;
-  transition-duration: 300ms;
-}
-.a_underlined:hover:before {
-  @apply opacity-100;
-}
 
 /* 💫 Animations */
 .slide-fade-leave-active {
@@ -108,63 +57,56 @@ a:hover:after {
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
-  font-weight: 100;
-  src: local(''),
-       url('../../static/fonts/biotif/Biotif-Book.otf') format('woff2');
-}
-@font-face {
-  font-family: 'Biotif';
-  font-style: normal;
   font-weight: 200;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Thin.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Book.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 300;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Light.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Light.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 400;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Regular.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 500;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Medium.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Medium.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 600;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-SemiBold.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-SemiBold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Bold.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Bold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 800;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-ExtraBold.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-ExtraBold.woff2') format('woff2');
 }
 @font-face {
   font-family: 'Biotif';
   font-style: normal;
   font-weight: 900;
   src: local(''),
-       url('../../static/fonts/biotif/Biotif-Black.otf') format('woff2');
+       url('../../static/fonts/biotif/Biotif-Black.woff2') format('woff2');
 }

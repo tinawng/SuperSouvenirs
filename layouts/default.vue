@@ -20,4 +20,8 @@
 .page-container {
   @apply pt-12;
 }
+section {
+  @apply max-w-7xl;
+  @apply mx-auto;
+}
 </style>
