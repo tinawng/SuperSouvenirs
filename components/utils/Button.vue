@@ -24,6 +24,7 @@ export default {
   @apply flex justify-center items-center;
   @apply rounded;
   @apply text-xs tracking-wider leading-none uppercase;
+  @apply cursor-pointer;
 }
 
 .button_primary {
@@ -31,7 +32,7 @@ export default {
   @apply text-white font-semibold text-opacity-80;
 }
 .button_secondary {
-  @apply bg-transparent border-2 border-dark border-opacity-30;
+  @apply bg-transparent border-2 border-dark border-opacity-20;
   @apply text-dark font-black text-opacity-60;
 }
 .button_small {

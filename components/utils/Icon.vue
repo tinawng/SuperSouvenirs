@@ -49,6 +49,9 @@
       <circle cx="11" cy="11" r="8"></circle>
       <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </g>
+    <g v-else-if="variant == 'bookmark'">
+      <path fill="currentColor" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+    </g>
   </svg>
 </template>
 

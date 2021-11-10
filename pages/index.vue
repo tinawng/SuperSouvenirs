@@ -9,14 +9,35 @@
       </div>
       <div class="h-full flex flex-col justify-center gap-y-6">
         <h1>
-          山下 達郎 <br />
+          山下 達郎<span class="text-red">.</span><br />
           Tatsurō Yamashita
         </h1>
         <h3>Symbol of the 70, Japanese most important contributor and pioneer of Japanese CityPop.</h3>
         <div class="flex gap-x-4">
-          <utils-button class="w-40">try now!</utils-button>
+          <utils-button class="w-40">listen now!</utils-button>
           <utils-button class="w-40" secondary icon="play">watch video</utils-button>
         </div>
+      </div>
+    </section>
+
+    <section class="listing">
+      <div>
+        <h2>New releases</h2>
+        <h4>SEE ALL</h4>
+      </div>
+      <div>
+        <cards-album />
+        <cards-album />
+        <cards-album />
+        <cards-album />
+      </div>
+      <div>
+        <cards-album small />
+        <cards-album small />
+        <cards-album small />
+        <cards-album small />
+        <cards-album small />
+        <cards-album small />
       </div>
     </section>
   </div>
