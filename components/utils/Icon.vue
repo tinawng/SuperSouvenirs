@@ -52,6 +52,16 @@
     <g v-else-if="variant == 'bookmark'">
       <path fill="currentColor" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
     </g>
+    <g v-else-if="variant == 'disc'" >
+      <circle cx="12" cy="12" r="10"></circle>
+      <circle cx="12" cy="12" r="3"></circle>
+    </g>
+    <g v-else-if="variant == 'grid'">
+      <rect x="3" y="3" width="7" height="7"></rect>
+      <rect x="14" y="3" width="7" height="7"></rect>
+      <rect x="14" y="14" width="7" height="7"></rect>
+      <rect x="3" y="14" width="7" height="7"></rect>
+    </g>
   </svg>
 </template>
 

@@ -8,7 +8,7 @@
       <span>genres</span>
     </div>
     <div class="flex gap-x-4">
-      <utils-button-icon icon="magnify"/>
+      <utils-button-icon icon="magnify" secondary small/>
       <utils-button class="w-20" small>log in</utils-button>
     </div>
   </div>

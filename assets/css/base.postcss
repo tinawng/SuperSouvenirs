@@ -25,11 +25,29 @@ html {
 h1 {
   @apply text-4xl font-bold text-black;
 }
+.dark h1 {
+  @apply text-white;
+}
 h2 {
   @apply text-xl font-semibold;
 }
 h4 {
   @apply text-xs font-bold text-dark text-opacity-60;
+}
+
+.dark {
+  @apply text-white;
+}
+
+a {
+  @apply transition-transform;
+  transition-duration: 150ms;
+}
+a:hover {
+  @apply transform -translate-y-0.5;
+}
+a:active {
+  @apply translate-y-0;
 }
 
 
