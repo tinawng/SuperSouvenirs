@@ -15,7 +15,6 @@
   max-width: 100vw;
   @apply w-screen;
   min-width: 100vw;
-  @apply bg-light;
 }
 
 .page-container {
@@ -25,9 +24,15 @@
 section {
   @apply max-w-7xl;
   @apply mx-auto;
-  @apply bg-white;
 }
-section:first-of-type {
-  @apply mt-12;
+section.listing {
+  @apply max-w-5xl;
+  @apply w-full flex flex-wrap gap-6;
+}
+section.listing > :first-child {
+  @apply w-full flex justify-between items-center;
+}
+section.listing > :not(:first-child) {
+  @apply w-full flex items-center gap-6;
 }
 </style>

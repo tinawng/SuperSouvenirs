@@ -57,13 +57,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  layout: "home",
+};
 </script>
 
 <style lang="postcss" scoped>
 .bg-square {
-  @apply absolute top-0 right-0;
-  z-index: -1;
+  @apply absolute top-0 right-0 -z-1;
   height: 40vw;
   width: 60vw;
   @apply bg-light;

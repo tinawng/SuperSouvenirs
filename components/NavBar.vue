@@ -22,7 +22,7 @@ export default {};
 .nav_bar__container {
   @apply w-full;
   @apply py-2 px-4;
-  @apply flex;
+  @apply flex items-center;
 }
 .nav_bar_brand {
   @apply text-2xl font-medium;

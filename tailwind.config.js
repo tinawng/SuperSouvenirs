@@ -27,7 +27,10 @@ module.exports = {
       },
       width: {
         '18': '4.5rem'
-      }
+      },
+      zIndex: {
+        '-1': '-1',
+       }
     },
     screens: {
       'portrait': { 'raw': '(orientation: portrait)' },
