@@ -15,7 +15,13 @@
         <utils-button class="w-28 row-start-5" secondary>follow</utils-button>
       </div>
     </section>
-    <section></section>
+    <section>
+      <h1 class="text-2xl">Top Tracks</h1>
+      <div class="mt-2 flex gap-8">
+        <utils-table style="flex: 1 0 75%"/>
+        <cards-album class="flex-shrink" />
+      </div>
+    </section>
   </div>
 </template>
 
@@ -27,14 +33,14 @@ export default {};
 section.hero {
   @apply relative;
   @apply max-w-7xl;
-  @apply p-8;
+  @apply px-16;
   @apply flex items-center gap-8;
 }
 section.hero::before {
   @apply absolute top-0 left-0 z-0;
   @apply h-1/2 w-full;
   @apply bg-light;
-  content: '';
+  content: "";
 }
 section > * {
   @apply z-10;

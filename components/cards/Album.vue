@@ -15,7 +15,7 @@
       <div v-if="is_new" class="new_macaroon">NEW</div>
     </div>
     <p class="card_album__artist">Tatsurō Yamashita</p>
-    <p class="card_album__album">Spacy · 1977</p>
+    <h4 class="card_album__album">Spacy · 1977</h4>
     <div class="mt-1 flex items-center">
       <utils-icon class="h-3 w-3 mr-1 text-yellow" variant="bookmark" />
       <span class="pt-1 text-xs opacity-70">234</span>
@@ -49,10 +49,7 @@ export default {
 }
 .card_album__album {
   @apply mt-1;
-  @apply font-medium opacity-60 tracking-wide;
-}
-.dark .card_album__album {
-  @apply font-normal;
+  @apply tracking-wide;
 }
 
 .card_album__hover_menu {
@@ -72,9 +69,7 @@ export default {
 .fade-enter-active,
 .fade-enter-active,
 .fade-leave-active {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
+  @apply transition-all;
 }
 .fade-enter,
 .fade-leave-to {

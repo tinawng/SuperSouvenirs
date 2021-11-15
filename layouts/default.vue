@@ -24,7 +24,7 @@
 
 section {
   @apply max-w-7xl;
-  @apply mx-auto;
+  @apply mx-auto px-12 py-8;
   @apply bg-white;
 }
 section:first-of-type {

@@ -3,8 +3,8 @@
     <div class="bg-square"></div>
     <section class="hero">
       <div class="relative mr-14">
-        <img class="absolute -top-24 left-20 h-48 shadow-2xl" src="/covers/tatsu2.jpg" />
-        <img class="absolute -top-32 right-48 h-64 shadow-2xl" src="/covers/tatsu1.jpg" />
+        <img class="absolute -top-24 right-0 h-48 shadow-2xl transform -translate-x-72 animation-glide" src="/covers/tatsu2.jpg" />
+        <img class="absolute -top-32 right-0 h-64 shadow-2xl transform -translate-x-44 animation-glide" src="/covers/tatsu1.jpg" />
         <img class="absolute -top-40 right-0 h-80 shadow-2xl" src="/covers/tatsu0.jpg" />
       </div>
       <div class="h-full flex flex-col justify-center gap-y-6">
@@ -23,7 +23,7 @@
     <section class="mb-24 listing">
       <div>
         <h2>New releases</h2>
-        <h4>SEE ALL</h4>
+        <h5>SEE ALL</h5>
       </div>
       <div>
         <cards-album />
@@ -90,5 +90,14 @@ section.featured::after {
   @apply absolute top-16 left-6;
   @apply text-xl text-white text-opacity-90;
   content: "This Month";
+}
+
+.animation-glide {
+  animation: 1.61s cubic-bezier(0.4, 0, 0.2, 1) 0s 1 glide;
+}
+@keyframes glide {
+  from {
+    transform: rotate(0deg) translate(0%, 0%);
+  }
 }
 </style>

@@ -2,16 +2,16 @@ module.exports = {
   darkMode: false,
   theme: {
     transitionDuration: {
-      DEFAULT: '300ms',
+      DEFAULT: '200ms',
     },
     colors: {
       transparent: 'transparent',
-      black: '#000',
-      white: '#FFF',
-      dark: '#4B4B4B',
-      light: '#F5F5F5',
+      black: '#000',      // h1
+      white: '#FFF',      // background
+      dark: '#4B4B4B',    // text
+      light: '#F5F5F5',   // background-alt
       gray: '#E4E1DE',
-      red: '#DD3C45',
+      red: '#DD3C45',     // button & accent
       orange: '#E7793D',
       yellow: '#F9BC32',
       green: '#43AD67',
