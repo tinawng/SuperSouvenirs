@@ -5,14 +5,17 @@
         <h4>{{ header }}</h4>
       </div>
     </div>
-    <div class="data_table__row" v-for="(data, index) in today_transaction" :key="index" :ref="`table-row-${index}`">
+    <div class="data_table__row" v-for="(data, index) in top_tracks" :key="index" :ref="`table-row-${index}`">
       <h4>{{index+1}}</h4>
       <div class="flex items-center gap-4">
         <img class="w-10 rounded-sm shadow-lg" src="/covers/tatsu0.jpg" />
         <h3 class="font-medium">{{ data.title }}</h3>
       </div>
       <h4>{{data.album}}</h4>
-      <h4 class="flex items-center gap-1"> <utils-icon class="w-4 text-red" variant="bookmark"/> {{data.bookmark}}</h4>
+      <div class="flex items-center gap-0.5">
+        <utils-icon class="w-3 pb-0.5 text-red" variant="bookmark" />
+        <h4>{{data.bookmark}}</h4>
+      </div>
       <h4>{{data.duration}}</h4>
     </div>
   </div>
@@ -22,7 +25,37 @@
 export default {
   data: () => ({
     headers: ["#", "Title", "Album", "Popularity", "Duration"],
-    datas: [
+    top_tracks: [
+      {
+        title: "Love Space",
+        album: "Spacy",
+        duration: "3:05",
+        bookmark: "10538",
+      },
+      {
+        title: "Love Space",
+        album: "Spacy",
+        duration: "3:05",
+        bookmark: "10538",
+      },
+      {
+        title: "Love Space",
+        album: "Spacy",
+        duration: "3:05",
+        bookmark: "10538",
+      },
+      {
+        title: "Love Space",
+        album: "Spacy",
+        duration: "3:05",
+        bookmark: "10538",
+      },
+      {
+        title: "Love Space",
+        album: "Spacy",
+        duration: "3:05",
+        bookmark: "10538",
+      },
       {
         title: "Love Space",
         album: "Spacy",
@@ -31,15 +64,6 @@ export default {
       },
     ],
   }),
-
-  computed: {
-    today_transaction: function () {
-      return [...this.datas].splice(0, 3);
-    },
-    yesterday_transaction: function () {
-      return [...this.datas].splice(3);
-    },
-  },
 
   methods: {
     getRowsDOMElementsList() {
@@ -86,7 +110,7 @@ export default {
 }
 .data_table__row:hover,
 .data_table__row_selected {
-    @apply bg-light;
+  @apply bg-light;
 }
 .data_table__row > * {
   @apply px-4;

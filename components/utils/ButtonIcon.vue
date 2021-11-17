@@ -1,7 +1,14 @@
 <template>
   <div
     class="button_icon__container"
-    :class="{'button_icon_primary': primary && !secondary, 'button_icon_secondary': secondary, 'button_icon_small': small, 'button_icon_blured': blured}"
+    :class="{
+      'button_icon_primary': primary && !secondary,
+      'button_icon_secondary': secondary,
+      'button_icon_small': small,
+      'button_icon_blured': blured,
+      'button_icon_border': border,
+      'button_icon_rounded': rounded
+      }"
   >
     <utils-icon class="button_icon__icon" :variant="icon" :stroke="2" />
   </div>
@@ -15,14 +22,17 @@ export default {
     secondary: Boolean,
     small: Boolean,
     blured: Boolean,
+    border: Boolean,
+    rounded: Boolean,
   },
 };
 </script>
 
 <style lang="postcss" scoped>
 .button_icon__container {
-  @apply p-3.5;
-  @apply rounded-full;
+  @apply h-fit w-fit;
+  @apply p-3;
+  @apply rounded;
   @apply cursor-pointer;
 
   @apply transition-colors;
@@ -55,5 +65,12 @@ export default {
   @apply bg-dark bg-opacity-70;
   @apply text-white;
   /* backdrop-filter: blur(4px); */
+}
+
+.button_icon_border {
+  @apply border-2 border-light;
+}
+.button_icon_rounded {
+  @apply rounded-full;
 }
 </style>

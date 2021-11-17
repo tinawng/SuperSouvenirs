@@ -22,15 +22,16 @@ module.exports = {
         '2xs': '.65rem',
       },
       height: {
-        '18': '4.5rem',
         'fit': 'fit-content',
+        '18': '4.5rem',
       },
       width: {
-        '18': '4.5rem'
+        'fit': 'fit-content',
+        '18': '4.5rem',
       },
       zIndex: {
         '-1': '-1',
-       }
+      }
     },
     screens: {
       'portrait': { 'raw': '(orientation: portrait)' },

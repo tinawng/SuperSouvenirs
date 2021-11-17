@@ -22,30 +22,34 @@ html {
   @apply w-0 h-0;
 }
 
+.dark {
+  @apply text-white;
+}
+
 h1 {
+  @apply -mb-0.5; /* Compensate font bottom margin 🤷‍♀️ */
   @apply text-4xl font-bold text-black;
 }
 .dark h1 {
   @apply text-white;
 }
 h2 {
+  @apply -mb-0.5;
   @apply text-xl font-semibold;
 }
 h4 {
+  @apply -mb-0.5;
   @apply text-sm font-medium opacity-60;
 }
 .dark h4 {
   @apply font-normal;
 }
 h5 {
+  @apply -mb-0.5;
   @apply text-xs font-bold text-dark text-opacity-60;
 }
-
-.dark {
-  @apply text-white;
-}
-
 a {
+  @apply -mb-0.5;
   @apply transition-transform;
   transition-duration: 150ms;
 }
@@ -56,6 +60,10 @@ a:active {
   @apply translate-y-0;
 }
 
+.dotted::after {
+  content: '.';
+  @apply text-red;
+}
 
 /* 💫 Animations */
 .slide-fade-leave-active {

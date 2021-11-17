@@ -17,6 +17,10 @@
     <g v-else-if="!variant || variant == 'play'">
       <polygon fill="currentColor" points="7 3 21 12 7 21 7 3"></polygon>
     </g>
+    <g v-else-if="!variant || variant == 'pause'">
+      <rect fill="currentColor" stroke="transparent" x="6" y="4" width="4" height="16"></rect>
+      <rect fill="currentColor" stroke="transparent" x="14" y="4" width="4" height="16"></rect>
+    </g>
     <g v-else-if="variant == 'next'">
       <polyline points="9 18 15 12 9 6"></polyline>
     </g>
@@ -52,7 +56,10 @@
     <g v-else-if="variant == 'bookmark'">
       <path fill="currentColor" d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
     </g>
-    <g v-else-if="variant == 'disc'" >
+    <g v-else-if="variant == 'bookmark-outlined'">
+      <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+    </g>
+    <g v-else-if="variant == 'disc'">
       <circle cx="12" cy="12" r="10"></circle>
       <circle cx="12" cy="12" r="3"></circle>
     </g>

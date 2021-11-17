@@ -9,7 +9,7 @@
       </div>
       <div class="h-full flex flex-col justify-center gap-y-6">
         <h1>
-          山下 達郎<span class="text-red">.</span><br />
+          <span class="dotted">山下 達郎</span><br />
           Tatsurō Yamashita
         </h1>
         <h3>Symbol of the 70, Japanese most important contributor and pioneer of Japanese CityPop.</h3>
@@ -58,7 +58,6 @@
 
 <script>
 export default {
-  layout: "home",
 };
 </script>
 

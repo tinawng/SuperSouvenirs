@@ -1,6 +1,6 @@
 <template>
   <div class="nav_bar__container">
-    <span class="nav_bar_brand">Super Souvenirs<span class="text-red">.</span></span>
+    <span class="nav_bar_brand dotted">Super Souvenirs</span>
     <div class="flex-grow flex justify-center items-center gap-x-12 opacity-60 text-xs font-bold uppercase leading-none">
       <span>catalogue</span>
       <span>soundtracks</span>
@@ -8,7 +8,7 @@
       <span>genres</span>
     </div>
     <div class="flex gap-x-4">
-      <utils-button-icon icon="magnify" secondary small/>
+      <utils-button-icon icon="magnify" secondary small rounded/>
       <utils-button class="w-20" small>log in</utils-button>
     </div>
   </div>
